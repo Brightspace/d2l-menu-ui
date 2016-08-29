@@ -1,0 +1,57 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="d2l-menu-item-styles.html">
+<link rel="import" href="d2l-menu-item-behavior.html">
+
+<dom-module id="d2l-menu-item-link">
+
+	<template>
+		<style include="d2l-menu-item-styles"></style>
+		<style>
+
+			:host {
+				display: block;
+				padding: 0;
+			}
+
+			:host > a {
+				color: inherit;
+				display: block;
+				line-height: 1.2rem;
+				outline: none;
+				overflow-x: hidden;
+				padding: 0.9rem 1rem;
+				text-decoration: none;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+		</style>
+		<a href$="[[href]]" tabindex="-1">[[text]]</a>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'd2l-menu-item-link',
+
+			behaviors: [
+				window.D2L.PolymerBehaviors.MenuItemBehavior
+			],
+
+			listeners: {
+				'select': '_onSelect'
+			},
+
+			properties: {
+				href: String
+			},
+
+			_onSelect: function(e) {
+				if (Polymer.dom(e).rootTarget !== this.$$('a')) {
+					window.location.assign(this.href);
+				}
+			}
+
+		});
+	</script>
+
+</dom-module>

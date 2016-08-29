@@ -1,0 +1,154 @@
+<link rel="import" href="../polymer/polymer.html">
+<script>
+(function() {
+	'use strict';
+
+	/** @polymerBehavior */
+	var MenuItemBehavior = {
+
+		hostAttributes: {
+			'role': 'menuitem',
+			tabindex: -1
+		},
+
+		listeners: {
+			'blur': '__onBlur',
+			'click': '__onClick',
+			'dom-change': '__onDomChange',
+			'focus': '__onFocus',
+			'hide-complete': '__onHideComplete',
+			'keydown': '__onKeyDown',
+			'mouseenter': '__onMouseEnter',
+			'mouseleave': '__onMouseLeave'
+		},
+
+		properties: {
+			disabled: {
+				type: Boolean,
+				reflectToAttribute: true,
+				value: false
+			},
+			hasChildView: {
+				type: Boolean,
+				value: false
+			},
+			text: String,
+			hidden: {
+				type: Boolean,
+				observer: '_onHidden',
+				reflectToAttribute: true
+			}
+		},
+
+		__keyCodes: {
+			ENTER: 13,
+			LEFT: 37,
+			RIGHT: 39,
+			SPACE: 32
+		},
+
+		__children: null,
+
+		ready: function() {
+			this.__initialize();
+			Polymer.dom(this).observeNodes(this.__initialize);
+		},
+
+		__initialize: function() {
+			var children = this.getEffectiveChildren();
+			if (children && children.length > 0 && children[0].tagName === 'TEMPLATE') {
+				return;
+			}
+
+			for (var i = 0; i < children.length; i++) {
+				if (children[i].tagName !== 'TEMPLATE') {
+					this.hasChildView = true;
+					this.__children = children;
+					this.setAttribute('aria-haspopup', true);
+					this.__children[0].setAttribute('label', this.text);
+					break;
+				}
+			}
+			if (this._initialize) {
+				this._initialize();
+			}
+		},
+
+		__action: function() {
+
+			if (this.disabled) {
+				return;
+			}
+
+			if (this.__children && this.__children.length > 0 && this.__children[0].isHierarchicalView) {
+				// assumption: single, focusable child view
+				this.__children[0].show();
+			} else {
+				this.fire('select');
+			}
+
+		},
+
+		__onBlur: function() {
+			this.fire('_blur');
+		},
+
+		__onClick: function(e) {
+			e.stopPropagation();
+			this.__action();
+		},
+
+		__onDomChange: function() {
+			this.__initialize();
+		},
+
+		__onFocus: function() {
+			this.fire('_focus');
+		},
+
+		__onHideComplete: function(e) {
+			if (this.__children.indexOf(Polymer.dom(e).localTarget) === -1) {
+				return;
+			}
+			if (e.detail.data && e.detail.data.preventFocus) {
+				return;
+			}
+			this.focus();
+		},
+
+		_onHidden: function() {
+			this.fire('visibility-change');
+		},
+
+		__onKeyDown: function(e) {
+			if (Polymer.dom(e).localTarget !== this) {
+				return;
+			}
+			if (e.keyCode === this.__keyCodes.ENTER || e.keyCode === this.__keyCodes.SPACE) {
+				e.stopPropagation();
+				this.__action();
+				return;
+			}
+			if (this.__children && this.__children.length > 0 && e.keyCode === this.__keyCodes.RIGHT) {
+				e.stopPropagation();
+				this.__action();
+				return;
+			}
+		},
+
+		__onMouseEnter: function() {
+			this.fire('_mouseenter');
+		},
+
+		__onMouseLeave: function() {
+			this.fire('_mouseleave');
+		}
+
+	};
+
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+	/** @polymerBehavior */
+	window.D2L.PolymerBehaviors.MenuItemBehavior = [MenuItemBehavior];
+})();
+</script>

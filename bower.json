@@ -1,0 +1,27 @@
+{
+  "name": "d2l-menu",
+  "description": "Polymer-based web component for a D2L menu",
+  "main": [
+    "d2l-menu.html"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "test",
+    ".editorconfig",
+    ".gitignore",
+    ".travis.yml",
+    "package.json"
+  ],
+  "dependencies": {
+    "d2l-colors": "^2.1.0",
+    "d2l-hierarchical-view": "~0.0.9",
+    "d2l-icons": "^2.5.0",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.0",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.0",
+    "polymer": "^1.5.0"
+  },
+  "devDependencies": {
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
+    "web-component-tester": "^4.2.2"
+  }
+}
