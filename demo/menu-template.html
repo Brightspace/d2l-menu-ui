@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>D2L Menu Web Component (Template)</title>
+	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
+	<script>
+		var shadow = (window.location.search.indexOf('dom=shadow') > -1);
+		if (shadow) {
+			window.Polymer = window.Polymer || {};
+			window.Polymer.dom = 'shadow';
+		}
+	</script>
+	<link rel="stylesheet" href="demo-styles.css">
+	<link rel="import" href="menu-custom-components.html">
+</head>
+<body unresolved>
+
+	<h1>d2l-menu web component (template)</h1>
+
+	<div>
+		<div id="content">
+			<h2>Component</h2>
+			<d2l-memu-template id="menu"></d2l-memu-template>
+		</div>
+	</div>
+
+	<script>
+		var page_menu, page_menu_items;
+
+		window.addEventListener('WebComponentsReady', function(e) {
+			page_menu = document.getElementById('menu');
+			page_menu_items = Polymer.dom(page_menu).children;
+			page_menu.addEventListener('select', function(e) {
+				console.log('item selected:', e);
+			});
+		});
+	</script>
+</body>
+</html>
