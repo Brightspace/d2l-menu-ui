@@ -71,6 +71,7 @@ By default, `d2l-menu-item` (for JS handlers) and `d2l-menu-item-link` (for navi
 <link rel="import" href="../d2l-menu/d2l-menu.html">
 <link rel="import" href="../d2l-menu/d2l-menu-item.html">
 <link rel="import" href="../d2l-menu/d2l-menu-item-link.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item-separator.html">
 
 <d2l-menu id="menu" label="Astronomy">
 	<d2l-menu-item text="Introduction"></d2l-menu-item>
