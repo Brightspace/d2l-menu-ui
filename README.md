@@ -37,7 +37,8 @@ A basic menu can be defined using `d2l-menu` and a combination of `d2l-menu-item
 ```
 
 * `label` - required to announce menu text with screen-readers
-* `no-side-borders` - optionally specify not to render side borders (sometimes helpful in side-nav/mobile menu context)
+
+**Note:** `d2l-menu` renders without an outer border since it's typically used in a context where a containing element defines a border (ex. `d2l-dropdown-menu` or side nav).
 
 ### Nested Menus
 
@@ -60,8 +61,6 @@ Nested menus can be defined by placing a `d2l-menu` inside a `d2l-menu-item`.  F
 	...
 </d2l-menu>
 ```
-
-* `no-return-item` - optionally specify not to render "return" menu item
 
 ### Menu Items
 

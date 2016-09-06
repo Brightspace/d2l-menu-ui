@@ -17,38 +17,23 @@
 			}
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"],
 			.d2l-menu-items ::content > [role="menuitem"] {
-				border: 1px solid var(--d2l-color-titanius);
+				border: 1px solid transparent;
 				border-top-color: var(--d2l-color-gypsum);
-				border-bottom-color: transparent;
 				color: var(--d2l-color-ferrite);
 			}
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"],
 			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"] {
-				border-top-color: var(--d2l-color-titanius);
-				border-top-left-radius: 0.3rem;
-				border-top-right-radius: 0.3rem;
-			}
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitem"] {
-				border-bottom-left-radius: 0.3rem;
-				border-bottom-right-radius: 0.3rem;
-				border-bottom-color: var(--d2l-color-titanius);
-			}
-			:host-context([no-side-borders]) .d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			:host-context([no-side-borders]) .d2l-menu-items ::content > [role="menuitem"] {
-				border-left-color: transparent;
-				border-right-color: transparent;
-			}
-			:host-context([no-side-borders]) .d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			:host-context([no-side-borders]) .d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"],
-			:host-context([no-side-borders]) .d2l-menu-items ::content > .d2l-menu-item-last[role="menuitem"] {
-				border-radius: 0;
+				border-top-color: transparent;
 			}
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"]:focus,
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"]:hover,
 			.d2l-menu-items ::content > [role="menuitem"]:focus,
-			.d2l-menu-items ::content > [role="menuitem"]:hover {
+			.d2l-menu-items ::content > [role="menuitem"]:hover,
+			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"]:focus,
+			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"]:hover {
 				background-color: var(--d2l-color-celestine-light-1);
-				border: 1px solid var(--d2l-color-celestine-light-2);
+				border-top: 1px solid var(--d2l-color-celestine-light-2);
+				border-bottom: 1px solid var(--d2l-color-celestine-light-2);
 				color: var(--d2l-color-celestine);
 			}
 			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitem"]:focus,
@@ -97,7 +82,9 @@
 				'keydown': '_onKeyDown',
 				'keypress': '_onKeyPress',
 				'show-complete': '_onShowComplete',
-				'visibility-change': '_onMenuItemsChanged'
+				'visibility-change': '_onMenuItemsChanged',
+				'view-resize': '_onViewResize',
+				'view-resize-complete': '_onViewResizeComplete'
 			},
 
 			properties: {
@@ -107,10 +94,6 @@
 					reflectToAttribute: true
 				},
 				noReturnItem: {
-					type: Boolean,
-					reflectToAttribute: true
-				},
-				noSideBorders: {
 					type: Boolean,
 					reflectToAttribute: true
 				}
@@ -304,14 +287,6 @@
 
 			},
 
-			_fireFirstLast: function(eventName, target) {
-				if (target === this._getFirstVisibleItem()) {
-					this.fire('_first-' + eventName);
-				} else if (target === this._getLastVisibleItem()) {
-					this.fire('_last-' + eventName);
-				}
-			},
-
 			_getFirstVisibleItem: function() {
 				for (var x = 0; x < this._items.length; x++) {
 					if (!this._items[x].hidden) {
@@ -335,7 +310,6 @@
 				if (rootTarget === this.$$('d2l-menu-item-return')) {
 					Polymer.dom(this.$$('.d2l-menu-items')).classList.remove('d2l-menu-item-return-focus');
 				}
-				this._fireFirstLast('blur', rootTarget);
 			},
 
 			_onMenuItemFocus: function(e) {
@@ -343,7 +317,6 @@
 				if (rootTarget === this.$$('d2l-menu-item-return')) {
 					Polymer.dom(this.$$('.d2l-menu-items')).classList.add('d2l-menu-item-return-focus');
 				}
-				this._fireFirstLast('focus', rootTarget);
 			},
 
 			_onMenuItemMouseEnter: function(e) {
@@ -351,7 +324,6 @@
 				if (rootTarget === this.$$('d2l-menu-item-return')) {
 					Polymer.dom(this.$$('.d2l-menu-items')).classList.add('d2l-menu-item-return-hover');
 				}
-				this._fireFirstLast('mouseenter', rootTarget);
 			},
 
 			_onMenuItemMouseLeave: function(e) {
@@ -359,7 +331,6 @@
 				if (rootTarget === this.$$('d2l-menu-item-return')) {
 					Polymer.dom(this.$$('.d2l-menu-items')).classList.remove('d2l-menu-item-return-hover');
 				}
-				this._fireFirstLast('mouseleave', rootTarget);
 			},
 
 			_onMenuItemsChanged: function() {
@@ -391,6 +362,13 @@
 					return;
 				}
 				this.focus();
+			},
+
+			_onViewResize: function(e) {
+				if (this.childView) {
+					return;
+				}
+				this.fire('d2l-menu-resize', e.detail);
 			},
 
 			_tryGetPreviousFocusable: function(item) {

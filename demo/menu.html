@@ -25,16 +25,13 @@
 			<button onclick="addItem();">Add Top Item</button>
 			<button onclick="showDeepMenu();">Show Deep Menu</button>
 		</div>
-		<div style="margin-bottom: 0.75rem;">
-			<label for="config-no-side-borders">
-				No Side Borders <input id="config-no-side-borders" type="checkbox" />
-			</label>
-		</div>
 	</div>
 
 	<div>
 		<div id="content">
 			<h2>Component</h2>
+
+			<div>
 
 			<d2l-menu id="menu" label="Astronomy" style="width:400px;">
 				<d2l-menu-item text="Introduction"></d2l-menu-item>
@@ -103,6 +100,8 @@
 				<d2l-menu-item text="The Universe"></d2l-menu-item>
 			</d2l-menu>
 
+			</div>
+
 		</div>
 		<div style="clear:both;"></div>
 	</div>
@@ -116,15 +115,6 @@
 			page_menu.addEventListener('select', function(e) {
 				console.log('item selected:', e);
 			});
-		});
-
-		var config_noSideBorders = document.getElementById('config-no-side-borders');
-		config_noSideBorders.addEventListener('change', function(e) {
-			if (e.target.checked) {
-				page_menu.setAttribute('no-side-borders', true);
-			} else {
-				page_menu.removeAttribute('no-side-borders');
-			}
 		});
 
 		function appendMenu() {
