@@ -94,7 +94,11 @@
 
 				it('sets focus to d2l-menu-item-return when nested menu is displayed', function(done) {
 					menu.addEventListener('show-complete', function() {
-						expect(document.activeElement.tagName).to.equal('D2L-MENU-ITEM-RETURN');
+						var focused = (document.activeElement.tagName === 'D2L-MENU-ITEM-RETURN');
+						if (!focused) {
+							focused = (document.activeElement === menu.querySelector('#nestedMenu'));
+						}
+						expect(focused).to.be.true;
 						done();
 					});
 					menu.querySelector('#b1').click();
@@ -136,7 +140,8 @@
 						done();
 					});
 					menu.addEventListener('show-complete', function() {
-						document.activeElement.click();
+						var returnItem = menu.querySelector('#nestedMenu')._getMenuItemReturn();
+						returnItem.click();
 					});
 					menu.querySelector('#b1').click();
 				});

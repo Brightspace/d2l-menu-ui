@@ -181,13 +181,17 @@
 
 			_getMenuItems: function() {
 				var items = this.getEffectiveChildren();
-				var returnItem = this.$$('d2l-menu-item-return');
+				var returnItem = this._getMenuItemReturn();
 				if (returnItem) {
 					items.unshift(returnItem);
 				}
 				return items.filter(function(item) {
 					return (item.getAttribute('role') === 'menuitem');
 				});
+			},
+
+			_getMenuItemReturn: function() {
+				return this.$$('d2l-menu-item-return');
 			},
 
 			_isFocusable: function(item) {
