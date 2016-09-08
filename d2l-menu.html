@@ -273,6 +273,7 @@
 					return itemIndex + 1;
 				}.bind(this);
 
+				/* "charCode" is used instead of "key" due to Safari not supporting */
 				var searchChar = String.fromCharCode(e.charCode);
 
 				var itemIndex = getNextOrFirstIndex(targetItemIndex);
