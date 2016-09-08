@@ -181,13 +181,17 @@
 
 			_getMenuItems: function() {
 				var items = this.getEffectiveChildren();
-				var returnItem = this.$$('d2l-menu-item-return');
+				var returnItem = this._getMenuItemReturn();
 				if (returnItem) {
 					items.unshift(returnItem);
 				}
 				return items.filter(function(item) {
 					return (item.getAttribute('role') === 'menuitem');
 				});
+			},
+
+			_getMenuItemReturn: function() {
+				return this.$$('d2l-menu-item-return');
 			},
 
 			_isFocusable: function(item) {
@@ -273,6 +277,7 @@
 					return itemIndex + 1;
 				}.bind(this);
 
+				/* "charCode" is used instead of "key" due to Safari not supporting */
 				var searchChar = String.fromCharCode(e.charCode);
 
 				var itemIndex = getNextOrFirstIndex(targetItemIndex);
@@ -352,8 +357,10 @@
 					}
 				}
 
-				Polymer.dom(visibleItems[0]).classList.add('d2l-menu-item-first');
-				Polymer.dom(visibleItems[visibleItems.length - 1]).classList.add('d2l-menu-item-last');
+				if (visibleItems.length > 0) {
+					Polymer.dom(visibleItems[0]).classList.add('d2l-menu-item-first');
+					Polymer.dom(visibleItems[visibleItems.length - 1]).classList.add('d2l-menu-item-last');
+				}
 
 			},
 
