@@ -353,8 +353,10 @@
 					}
 				}
 
-				Polymer.dom(visibleItems[0]).classList.add('d2l-menu-item-first');
-				Polymer.dom(visibleItems[visibleItems.length - 1]).classList.add('d2l-menu-item-last');
+				if (visibleItems.length > 0) {
+					Polymer.dom(visibleItems[0]).classList.add('d2l-menu-item-first');
+					Polymer.dom(visibleItems[visibleItems.length - 1]).classList.add('d2l-menu-item-last');
+				}
 
 			},
 
