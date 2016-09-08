@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>d2l-menu-item tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<link rel="import" href="../../iron-test-helpers/iron-test-helpers.html">
+		<link rel="import" href="../d2l-menu.html">
+	</head>
+	<body>
+
+		<test-fixture id="menu">
+			<template>
+				<d2l-menu id="menu">
+					<d2l-menu-item id="a1"></d2l-menu-item>
+					<d2l-menu-item id="b1">
+						<d2l-menu id="nestedMenu">
+							<d2l-menu-item id="a2"></d2l-menu-item>
+							<d2l-menu-item id="b2"></d2l-menu-item>
+						</d2l-menu>
+					</d2l-menu-item>
+					<d2l-menu-item id="c1" disabled></d2l-menu-item>
+				</d2l-menu>
+			</template>
+		</test-fixture>
+
+		<script>
+
+		describe('<d2l-menu-item>', function() {
+
+			var menu;
+
+			beforeEach(function() {
+				menu = fixture('menu');
+			});
+
+			it('has role="menuitem"', function() {
+				expect(menu.querySelector('#a1').getAttribute('role')).to.equal('menuitem');
+			});
+
+			it('has aria-haspopup="true" when item contains nested menu', function() {
+				expect(menu.querySelector('#b1').getAttribute('aria-haspopup')).to.equal('true');
+			});
+
+			it('fires select event when item is clicked', function(done) {
+				menu.addEventListener('select', function(e) {
+					expect(e.target.id).to.equal('a1');
+					done();
+				});
+				menu.querySelector('#a1').click();
+			});
+
+			it('fires select event when enter key pressed on item', function(done) {
+				menu.addEventListener('select', function(e) {
+					expect(e.target.id).to.equal('a1');
+					done();
+				});
+				MockInteractions.keyDownOn(menu.querySelector('#a1'), 13);
+			});
+
+			it('fires select event when space key pressed on item', function(done) {
+				menu.addEventListener('select', function(e) {
+					expect(e.target.id).to.equal('a1');
+					done();
+				});
+				MockInteractions.keyDownOn(menu.querySelector('#a1'), 32);
+			});
+
+			it('does not fire select event for disabled item', function(done) {
+				var fired = false;
+				menu.addEventListener('select', function(e) {
+					fired = true;
+				});
+				setTimeout(function() {
+					expect(fired).to.be.false;
+					done();
+				}, 0);
+				MockInteractions.keyDownOn(menu.querySelector('#c1'), 13);
+			});
+
+		});
+		</script>
+	</body>
+</html>
