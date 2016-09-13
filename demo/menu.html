@@ -1,38 +1,21 @@
 <html>
 <head>
-	<title>D2L Menu Web Component</title>
+	<title>d2l-menu</title>
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
-	<script>
-		var shadow = (window.location.search.indexOf('dom=shadow') > -1);
-		if (shadow) {
-			window.Polymer = window.Polymer || {};
-			window.Polymer.dom = 'shadow';
-		}
-	</script>
-	<link rel="stylesheet" href="demo-styles.css">
+	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
 	<link rel="import" href="../d2l-menu.html">
 </head>
 <body unresolved>
 
-	<h1>d2l-menu web component</h1>
+	<d2l-demo-template title="d2l-menu">
 
-	<div>
-		<h2>Configuration</h2>
-		<div style="margin-bottom: 0.75rem;">
-			<button onclick="toggleRTL();">Toggle RTL</button>
-			<button onclick="toggleFloat();">Toggle Float</button>
+		<div class="d2l-demo-actions">
 			<button onclick="setFocus();">Set Focus</button>
 			<button onclick="addItem();">Add Top Item</button>
 			<button onclick="showDeepMenu();">Show Deep Menu</button>
 		</div>
-	</div>
 
-	<div>
-		<div id="content">
-			<h2>Component</h2>
-
-			<div>
-
+		<div class="d2l-demo-fixture">
 			<d2l-menu id="menu" label="Astronomy" style="width:400px;">
 				<d2l-menu-item text="Introduction"></d2l-menu-item>
 				<d2l-menu-item text="Searching the Heavens"></d2l-menu-item>
@@ -99,31 +82,20 @@
 				</d2l-menu-item>
 				<d2l-menu-item text="The Universe"></d2l-menu-item>
 			</d2l-menu>
-
-			</div>
-
 		</div>
-		<div style="clear:both;"></div>
-	</div>
+
+	</d2l-demo-template>
+
 	<script>
 
-		var page_menu, page_menu_items;
+		var page_menu;
 
 		window.addEventListener('WebComponentsReady', function(e) {
 			page_menu = document.getElementById('menu');
-			page_menu_items = Polymer.dom(page_menu).children;
 			page_menu.addEventListener('select', function(e) {
 				console.log('item selected:', e);
 			});
 		});
-
-		function appendMenu() {
-			document.getElementById('content').appendChild(page_menu);
-		}
-
-		function removeMenu() {
-			page_menu.parentNode.removeChild(page_menu);
-		}
 
 		function setFocus() {
 			page_menu.focus();
@@ -142,27 +114,6 @@
 		function showDeepMenu() {
 			var deepMenu = document.getElementById('stardeath');
 			deepMenu.show();
-		}
-
-		function toggleRTL() {
-			var isRTL = (document.body.dir === 'rtl');
-			if (isRTL) {
-				document.body.dir = 'ltr';
-			} else {
-				document.body.dir = 'rtl';
-			}
-			removeMenu();
-			appendMenu();
-		}
-
-		function toggleFloat() {
-			var content = document.getElementById('content');
-			var isFloatRight = (content.style.cssFloat === 'right');
-			if (isFloatRight) {
-				content.style.cssFloat = '';
-			} else {
-				content.style.cssFloat = 'right';
-			}
 		}
 
 	</script>

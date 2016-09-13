@@ -1,29 +1,16 @@
 <html>
 <head>
-	<title>D2L Menu Web Component (Custom)</title>
+	<title>d2l-menu (custom)</title>
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
-	<script>
-		var shadow = (window.location.search.indexOf('dom=shadow') > -1);
-		if (shadow) {
-			window.Polymer = window.Polymer || {};
-			window.Polymer.dom = 'shadow';
-		}
-	</script>
-	<link rel="stylesheet" href="demo-styles.css">
-	<link rel="import" href="demo-components.html">
+	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
 	<link rel="import" href="../d2l-menu.html">
+	<link rel="import" href="demo-components.html">
 </head>
 <body unresolved>
 
-	<h1>d2l-menu web component (custom)</h1>
+	<d2l-demo-template title="d2l-menu (custom)">
 
-	<br>
-	<a href="https://en.wikipedia.org/wiki/Universe">More about the universe!</a>
-	<br>
-
-	<div>
-		<div id="content">
-			<h2>Component</h2>
+		<div class="d2l-demo-fixture">
 
 			<d2l-menu id="menu" label="Astronomy" style="width:400px;">
 				<d2l-menu-item text="Introduction"></d2l-menu-item>
@@ -45,24 +32,7 @@
 
 		</div>
 
-		<div style="clear:both;"></div>
+	</d2l-demo-template>
 
-		<br>
-		<a href="https://en.wikipedia.org/wiki/Universe">More about the universe!</a>
-
-	</div>
-	<script>
-
-		var page_menu, page_menu_items;
-
-		window.addEventListener('WebComponentsReady', function(e) {
-			page_menu = document.getElementById('menu');
-			page_menu_items = Polymer.dom(page_menu).children;
-			page_menu.addEventListener('select', function(e) {
-				console.log('item selected:', e);
-			});
-		});
-
-	</script>
 </body>
 </html>
