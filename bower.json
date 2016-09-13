@@ -21,6 +21,7 @@
     "polymer": "^1.5.0"
   },
   "devDependencies": {
+    "d2l-demo-template": "https://github.com/dbatiste/d2l-demo-template-ui.git#master",
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
     "web-component-tester": "^4.2.2"
   }
