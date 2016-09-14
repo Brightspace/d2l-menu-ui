@@ -26,7 +26,7 @@
 			}
 
 		</style>
-		<a href$="[[href]]" tabindex="-1">[[text]]</a>
+		<a href$="[[href]]" tabindex="-1" on-click="_onClick">[[text]]</a>
 	</template>
 
 	<script>
@@ -42,7 +42,19 @@
 			},
 
 			properties: {
-				href: String
+				href: String,
+				preventDefault: {
+					type: Boolean,
+					reflectToAttribute: true,
+					value: false
+				}
+			},
+
+			_onClick: function(e) {
+				if (this.preventDefault) {
+					e.preventDefault();
+					e.stopImmediatePropagation();
+				}
 			},
 
 			_onSelect: function(e) {
