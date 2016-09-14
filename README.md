@@ -77,11 +77,13 @@ By default, `d2l-menu-item` (for JS handlers) and `d2l-menu-item-link` (for navi
 	<d2l-menu-item text="The Planets"></d2l-menu-item>
 	<d2l-menu-item-separator></d2l-menu-item-separator>
 	<d2l-menu-item-link href="http://...">Extra Stuff</d2l-menu-item-link>
+	<d2l-menu-item-link href="http://..." prevent-default>Will not open automatically</d2l-menu-item-link>
 </d2l-menu>
 ```
 
 * `text` - required for `d2l-menu-item`
 * `href` - required for `d2l-menu-item-link`
+* `prevent-default` - optional for `d2l-menu-item-link` - disables normal link behavior.  This can help if you want both a JS handler and the browser's 'open in new tab' functionality (e.g. popup window links).
 
 ```javascript
 menu.addEventListener('select', function(e) {
