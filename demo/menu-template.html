@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>d2l-menu (template based)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
 	<link rel="import" href="../../polymer/polymer.html">
 	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
@@ -11,7 +12,7 @@
 	<d2l-demo-template title="d2l-menu (template based)">
 		<div class="d2l-demo-fixture">
 
-			<d2l-menu label="Astronomy" style="width: 400px;">
+			<d2l-menu label="Astronomy" style="max-width: 400px;">
 				<template id="menu_template" is="dom-repeat">
 					<d2l-menu-item text="{{item.text}}">
 						<template is="dom-if" if="{{item.menuItems}}">
