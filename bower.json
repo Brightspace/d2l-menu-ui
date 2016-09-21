@@ -4,6 +4,7 @@
   "main": "d2l-menu.html",
   "license": "Apache-2.0",
   "ignore": [
+    "demo",
     "test",
     ".editorconfig",
     ".gitignore",
