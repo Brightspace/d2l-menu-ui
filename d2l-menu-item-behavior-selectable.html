@@ -1,0 +1,69 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="d2l-menu-item-behavior.html">
+
+<script>
+'use strict';
+
+(function() {
+
+	/** @polymerBehavior */
+	var MenuItemBehaviorSelectable = {
+		/*
+		* Fired when a menu item is selected
+		* @event menu-item-selection
+		* @param {String} value `value` property of the item
+		* @param {Boolean} selected True if item is selected
+		*/
+
+		properties: {
+			/* Indicates whether the menu item should be treated as a radio option (false for checkboxes) */
+			isRadio: Boolean,
+			selected: {
+				type: Boolean,
+				value: false,
+				observer: '_onSelectedChanged',
+				reflectToAttribute: true
+			},
+			value: String
+		},
+		listeners: {
+			'tap': '_onTap',
+			'keydown': '_onKeydown',
+			'menu-item-selection': '_onItemSelection'
+		},
+		_onItemSelection: function(e) {
+			if (!this.isRadio) {
+				return;
+			}
+
+			this.parentNode.querySelectorAll('[aria-checked="true"]').forEach(function(item) {
+				if (item.isRadio) {
+					item.set('selected', item.value === e.detail.value);
+				}
+			});
+		},
+		_onSelectedChanged: function(selected) {
+			selected ? this.setAttribute('aria-checked', true) : this.removeAttribute('aria-checked');
+		},
+		_onKeydown: function(e) {
+			if (e.keyCode === this.__keyCodes.ENTER || e.keyCode === this.__keyCodes.SPACE) {
+				this._onTap(e);
+			}
+		},
+		_onTap: function(e) {
+			this.set('selected', this.isRadio ? true : !this.selected);
+			e.preventDefault();
+			this.fire('menu-item-selection', {
+				value: this.value,
+				selected: this.selected
+			});
+		}
+	};
+
+	/** @polymerBehavior window.D2L.PolymerBehaviors.MenuItemBehaviorSelectable **/
+	window.D2L.PolymerBehaviors.MenuItemBehaviorSelectable = [
+		MenuItemBehaviorSelectable,
+		window.D2L.PolymerBehaviors.MenuItemBehavior
+	];
+})();
+</script>
