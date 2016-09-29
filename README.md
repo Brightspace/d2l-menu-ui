@@ -64,13 +64,19 @@ Nested menus can be defined by placing a `d2l-menu` inside a `d2l-menu-item`.  F
 
 ### Menu Items
 
-By default, `d2l-menu-item` (for JS handlers) and `d2l-menu-item-link` (for navigating) are provided.  While navigation can be done in JS too, `d2l-menu-item-link` gives users the ability to right-click and open in a new tab.  If providing a JS handler, wire-up to the `select` event.  In addition, a `d2l-menu-item-separator` can be used to semantically separate menu items.
+By default, there are several menu item types provided. These include `d2l-menu-item` (for JS handlers), `d2l-menu-item-link` (for navigating), and `d2l-menu-item-checkbox`/`d2l-menu-item-radio` (for selection).
+
+While navigation can be done in JS too, `d2l-menu-item-link` gives users the ability to right-click and open in a new tab.  If providing a JS handler, wire-up to the `select` event.  In addition, a `d2l-menu-item-separator` can be used to semantically separate menu items.
+
+The selection menu items act as you would expect a checkbox or radio item to act. Multiple checkboxes in the same menu may be selected, but only one radio item in a given `<d2l-menu>` may be selected at once (i.e. selecting one option will deselect all the other `d2l-menu-item-radio` items).
 
 ```html
 <link rel="import" href="../d2l-menu/d2l-menu.html">
 <link rel="import" href="../d2l-menu/d2l-menu-item.html">
 <link rel="import" href="../d2l-menu/d2l-menu-item-link.html">
 <link rel="import" href="../d2l-menu/d2l-menu-item-separator.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item-checkbox.html">
+<link rel="import" href="../d2l-menu/d2l-menu-item-radio.html">
 
 <d2l-menu id="menu" label="Astronomy">
 	<d2l-menu-item text="Introduction"></d2l-menu-item>
@@ -78,12 +84,18 @@ By default, `d2l-menu-item` (for JS handlers) and `d2l-menu-item-link` (for navi
 	<d2l-menu-item-separator></d2l-menu-item-separator>
 	<d2l-menu-item-link href="http://...">Extra Stuff</d2l-menu-item-link>
 	<d2l-menu-item-link href="http://..." prevent-default>Will not open automatically</d2l-menu-item-link>
+	<d2l-menu-item-checkbox text="Checkbox 1" value="1"></d2l-menu-item-checkbox>
+	<d2l-menu-item-checkbox text="Checkbox 2" value="2"></d2l-menu-item-checkbox>
+	<d2l-menu-item-checkbox text="Radio 1" value="1"></d2l-menu-item-checkbox>
+	<d2l-menu-item-checkbox text="Radio 2" value="2"></d2l-menu-item-checkbox>
 </d2l-menu>
 ```
 
 * `text` - required for `d2l-menu-item`
 * `href` - required for `d2l-menu-item-link`
+* `value` - required for `d2l-menu-item-checkbox`/`d2l-menu-item-radio`
 * `prevent-default` - optional for `d2l-menu-item-link` - disables normal link behavior.  This can help if you want both a JS handler and the browser's 'open in new tab' functionality (e.g. popup window links).
+* `selected` - optional for `d2l-menu-item-checkbox`/`d2l-menu-item-radio`, this will set the item to be selected by default.
 
 ```javascript
 menu.addEventListener('select', function(e) {
