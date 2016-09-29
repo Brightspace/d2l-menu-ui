@@ -1,0 +1,30 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="d2l-menu-item-styles.html">
+
+<dom-module id="d2l-menu-item-selectable-styles">
+	<template>
+		<style include="d2l-menu-item-styles">
+			:host {
+				display: block;
+				padding: 0.9rem 1rem;
+				line-height: 1.2rem;
+			}
+
+			:host(:hover),
+			:host(:focus),
+			:host(:hover) > d2l-icon,
+			:host(:focus) > d2l-icon {
+				color: var(--d2l-color-celestine);
+			}
+
+			:host > d2l-icon {
+				visibility: hidden;
+			}
+
+			:host([aria-checked="true"]) > d2l-icon {
+				visibility: visible;
+			}
+		</style>
+	</template>
+</dom-module>

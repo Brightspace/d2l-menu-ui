@@ -1,29 +1,11 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-icons/d2l-icons.html">
-<link rel="import" href="d2l-menu-item-styles.html">
-<link rel="import" href="d2l-menu-item-behavior-selectable.html">
+<link rel="import" href="d2l-menu-item-selectable-styles.html">
+<link rel="import" href="d2l-menu-item-selectable-behavior.html">
 
 <dom-module id="d2l-menu-item-radio">
 	<template>
-		<style include"d2l-menu-item-styles">
-			:host {
-				display: block;
-				padding: 0.9rem 1rem;
-				line-height: 1.2rem;
-			}
-			:host(:hover),
-			:host(:focus),
-			:host(:hover) > d2l-icon,
-			:host(:focus) > d2l-icon {
-				color: var(--d2l-color-celestine);
-			}
-			:host > d2l-icon {
-				visibility: hidden;
-			}
-			:host([aria-checked="true"]) > d2l-icon {
-				visibility: visible;
-			}
-		</style>
+		<style include="d2l-menu-item-selectable-styles"></style>
 
 		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
 		<span>[[text]]</span>
@@ -32,11 +14,36 @@
 		'use strict';
 		Polymer({
 			is: 'd2l-menu-item-radio',
+			properties: {
+				/* Indicates whether the menu item should be treated as a radio option (false for checkboxes) */
+				isRadio: {
+					type: Boolean,
+					value: true,
+					readOnly: true
+				}
+			},
 			behaviors: [
 				window.D2L.PolymerBehaviors.MenuItemBehaviorSelectable
 			],
-			ready: function() {
-				this.isRadio = true;
+			listeners: {
+				'd2l-menu-item-change': '_onItemChange',
+				'select': '_onSelect'
+			},
+			_onItemChange: function(e) {
+				this.parentNode.querySelectorAll('[aria-checked="true"]').forEach(function(item) {
+					if (item.isRadio) {
+						item.set('selected', item.value === e.detail.value);
+					}
+				});
+			},
+			_onSelect: function(e) {
+				this.set('selected', true);
+				e.preventDefault();
+				e.stopPropagation();
+				this.fire('d2l-menu-item-change', {
+					value: this.value,
+					selected: this.selected
+				});
 			}
 		});
 	</script>
