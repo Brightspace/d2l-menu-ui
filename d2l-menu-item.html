@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../d2l-icons/tier1-icons.html">
+<link rel="import" href="../d2l-icons/d2l-icon.html">
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
 
@@ -24,15 +24,9 @@
 				white-space: nowrap;
 			}
 
-			:host > iron-icon {
+			:host > d2l-icon {
 				flex: none;
-				height: 18px;
 				margin-top: 0.2rem;
-				width: 18px;
-			}
-
-			:host-context([dir="rtl"]) > iron-icon {
-				transform: scaleX(-1);
 			}
 
 		</style>
@@ -49,8 +43,8 @@
 			],
 
 			_initialize: function() {
-				if (this.hasChildView && !this.$$('iron-icon')) {
-					var icon = document.createElement('iron-icon');
+				if (this.hasChildView && !this.$$('d2l-icon')) {
+					var icon = document.createElement('d2l-icon');
 					Polymer.dom(icon).setAttribute('icon', 'd2l-tier1:chevron-right');
 					Polymer.dom(this.root).insertBefore(
 						icon, this.$$('content')

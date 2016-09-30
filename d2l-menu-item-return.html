@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../d2l-icons/tier1-icons.html">
+<link rel="import" href="../d2l-icons/d2l-icon.html">
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
 
@@ -24,22 +24,19 @@
 				white-space: nowrap;
 			}
 
-			:host > iron-icon {
+			:host > d2l-icon {
 				flex: none;
-				height: 18px;
 				margin-right: 1rem;
 				margin-top: 0.2rem;
-				width: 18px;
 			}
 
-			:host-context([dir="rtl"]) > iron-icon {
+			:host-context([dir="rtl"]) > d2l-icon {
 				margin-right: 0;
 				margin-left: 1rem;
-				transform: scaleX(-1);
 			}
 
 		</style>
-		<iron-icon icon="d2l-tier1:chevron-left"></iron-icon>
+		<d2l-icon icon="d2l-tier1:chevron-left"></d2l-icon>
 		<span>[[text]]</span>
 		<content></content>
 	</template>
