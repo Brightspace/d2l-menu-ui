@@ -15,8 +15,11 @@
 		Polymer({
 			is: 'd2l-menu-item-checkbox',
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehaviorSelectable
+				window.D2L.PolymerBehaviors.MenuItemSelectableBehavior
 			],
+			hostAttributes: {
+				'role': 'menuitemcheckbox'
+			},
 			listeners: {
 				'select': '_onSelect'
 			},

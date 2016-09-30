@@ -14,26 +14,15 @@
 		'use strict';
 		Polymer({
 			is: 'd2l-menu-item-radio',
-			properties: {
-				isRadio: {
-					type: Boolean,
-					value: true,
-					readOnly: true
-				}
-			},
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehaviorSelectable
+				window.D2L.PolymerBehaviors.MenuItemSelectableBehavior
 			],
+			hostAttributes: {
+				'role': 'menuitemradio'
+			},
 			listeners: {
 				'd2l-menu-item-change': '_onItemChange',
 				'select': '_onSelect'
-			},
-			_onItemChange: function(e) {
-				this.parentNode.querySelectorAll('[aria-checked="true"]').forEach(function(item) {
-					if (item.isRadio) {
-						item.set('selected', item.value === e.detail.value);
-					}
-				});
 			},
 			_onSelect: function(e) {
 				this.set('selected', true);
@@ -42,6 +31,11 @@
 				this.fire('d2l-menu-item-change', {
 					value: this.value,
 					selected: this.selected
+				});
+			},
+			_onItemChange: function(e) {
+				this.parentNode.querySelectorAll('[role="menuitemradio"]').forEach(function(item) {
+					item.set('selected', item.value === e.detail.value);
 				});
 			}
 		});

@@ -101,8 +101,8 @@
 				checkbox = menu.querySelector('#check1');
 			});
 
-			it('has role="menuitem"', function () {
-				expect(checkbox.getAttribute('role')).to.equal('menuitem');
+			it('has role="menuitemcheckbox"', function () {
+				expect(checkbox.getAttribute('role')).to.equal('menuitemcheckbox');
 			});
 
 			it('swallows the "select" event', function (done) {
@@ -189,8 +189,8 @@
 				radio = menu.querySelector('#radio1');
 			});
 
-			it('has role="menuitem"', function () {
-				expect(radio.getAttribute('role')).to.equal('menuitem');
+			it('has role="menuitemradio"', function () {
+				expect(radio.getAttribute('role')).to.equal('menuitemradio');
 			});
 
 			it('swallows the "select" event', function (done) {
