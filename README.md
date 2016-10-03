@@ -84,10 +84,13 @@ The selection menu items act as you would expect a checkbox or radio item to act
 	<d2l-menu-item-separator></d2l-menu-item-separator>
 	<d2l-menu-item-link href="http://...">Extra Stuff</d2l-menu-item-link>
 	<d2l-menu-item-link href="http://..." prevent-default>Will not open automatically</d2l-menu-item-link>
+</d2l-menu>
+
+<d2l-menu id="selectable-menu" label="Some Options">
 	<d2l-menu-item-checkbox text="Checkbox 1" value="1"></d2l-menu-item-checkbox>
 	<d2l-menu-item-checkbox text="Checkbox 2" value="2"></d2l-menu-item-checkbox>
-	<d2l-menu-item-checkbox text="Radio 1" value="1"></d2l-menu-item-checkbox>
-	<d2l-menu-item-checkbox text="Radio 2" value="2"></d2l-menu-item-checkbox>
+	<d2l-menu-item-radio text="Radio 1" value="1" selected></d2l-menu-item-radio>
+	<d2l-menu-item-radio text="Radio 2" value="2"></d2l-menu-item-radio>
 </d2l-menu>
 ```
 
