@@ -25,12 +25,7 @@
 			},
 			_onSelect: function(e) {
 				this.set('selected', !this.selected);
-				e.preventDefault();
-				e.stopPropagation();
-				this.fire('d2l-menu-item-change', {
-					value: this.value,
-					selected: this.selected
-				});
+				this.__onSelect(e);
 			}
 		});
 	</script>

@@ -26,12 +26,7 @@
 			},
 			_onSelect: function(e) {
 				this.set('selected', true);
-				e.preventDefault();
-				e.stopPropagation();
-				this.fire('d2l-menu-item-change', {
-					value: this.value,
-					selected: this.selected
-				});
+				this.__onSelect(e);
 			},
 			_onItemChange: function(e) {
 				this.parentNode.querySelectorAll('[role="menuitemradio"]').forEach(function(item) {

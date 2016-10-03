@@ -24,6 +24,14 @@
 			},
 			value: String
 		},
+		__onSelect: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			this.fire('d2l-menu-item-change', {
+				value: this.value,
+				selected: this.selected
+			});
+		},
 		_onSelectedChanged: function(selected) {
 			selected ? this.setAttribute('aria-checked', true) : this.removeAttribute('aria-checked');
 		}
