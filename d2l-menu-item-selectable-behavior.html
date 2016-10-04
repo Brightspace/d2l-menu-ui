@@ -1,0 +1,46 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="d2l-menu-item-behavior.html">
+
+<script>
+'use strict';
+
+(function() {
+
+	/** @polymerBehavior */
+	var MenuItemSelectableBehavior = {
+		/*
+		* Fired when a menu item is selected
+		* @event d2l-menu-item-change
+		* @param {String} value `value` property of the item
+		* @param {Boolean} selected True if item is selected
+		*/
+
+		properties: {
+			selected: {
+				type: Boolean,
+				value: false,
+				observer: '_onSelectedChanged',
+				reflectToAttribute: true
+			},
+			value: String
+		},
+		__onSelect: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			this.fire('d2l-menu-item-change', {
+				value: this.value,
+				selected: this.selected
+			});
+		},
+		_onSelectedChanged: function(selected) {
+			selected ? this.setAttribute('aria-checked', true) : this.removeAttribute('aria-checked');
+		}
+	};
+
+	/** @polymerBehavior window.D2L.PolymerBehaviors.MenuItemSelectableBehavior **/
+	window.D2L.PolymerBehaviors.MenuItemSelectableBehavior = [
+		MenuItemSelectableBehavior,
+		window.D2L.PolymerBehaviors.MenuItemBehavior
+	];
+})();
+</script>
