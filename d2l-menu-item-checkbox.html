@@ -6,7 +6,6 @@
 <dom-module id="d2l-menu-item-checkbox">
 	<template>
 		<style include="d2l-menu-item-selectable-styles"></style>
-
 		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
 		<span>[[text]]</span>
 	</template>
@@ -14,19 +13,24 @@
 		'use strict';
 		Polymer({
 			is: 'd2l-menu-item-checkbox',
+
 			behaviors: [
 				window.D2L.PolymerBehaviors.MenuItemSelectableBehavior
 			],
+
 			hostAttributes: {
 				'role': 'menuitemcheckbox'
 			},
+
 			listeners: {
 				'select': '_onSelect'
 			},
+
 			_onSelect: function(e) {
 				this.set('selected', !this.selected);
 				this.__onSelect(e);
 			}
+
 		});
 	</script>
 </dom-module>

@@ -6,7 +6,6 @@
 <dom-module id="d2l-menu-item-radio">
 	<template>
 		<style include="d2l-menu-item-selectable-styles"></style>
-
 		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
 		<span>[[text]]</span>
 	</template>
@@ -14,25 +13,31 @@
 		'use strict';
 		Polymer({
 			is: 'd2l-menu-item-radio',
+
 			behaviors: [
 				window.D2L.PolymerBehaviors.MenuItemSelectableBehavior
 			],
+
 			hostAttributes: {
 				'role': 'menuitemradio'
 			},
+
 			listeners: {
 				'd2l-menu-item-change': '_onItemChange',
 				'select': '_onSelect'
 			},
+
 			_onSelect: function(e) {
 				this.set('selected', true);
 				this.__onSelect(e);
 			},
+
 			_onItemChange: function(e) {
 				this.parentNode.querySelectorAll('[role="menuitemradio"]').forEach(function(item) {
 					item.set('selected', item.value === e.detail.value);
 				});
 			}
+
 		});
 	</script>
 </dom-module>
