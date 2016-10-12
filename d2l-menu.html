@@ -177,7 +177,7 @@
 
 			_createReturnItem: function() {
 				var item = document.createElement('d2l-menu-item-return');
-				item.addEventListener('select', function(e) {
+				item.addEventListener('d2l-menu-item-select', function(e) {
 					e.stopPropagation();
 					this.hide();
 				}.bind(this));

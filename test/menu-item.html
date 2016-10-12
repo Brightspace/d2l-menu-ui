@@ -46,7 +46,7 @@
 			});
 
 			it('fires select event when item is clicked', function(done) {
-				menu.addEventListener('select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function(e) {
 					expect(e.target.id).to.equal('a1');
 					done();
 				});
@@ -54,7 +54,7 @@
 			});
 
 			it('fires select event when enter key pressed on item', function(done) {
-				menu.addEventListener('select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function(e) {
 					expect(e.target.id).to.equal('a1');
 					done();
 				});
@@ -62,7 +62,7 @@
 			});
 
 			it('fires select event when space key pressed on item', function(done) {
-				menu.addEventListener('select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function(e) {
 					expect(e.target.id).to.equal('a1');
 					done();
 				});
@@ -71,7 +71,7 @@
 
 			it('does not fire select event for disabled item', function(done) {
 				var fired = false;
-				menu.addEventListener('select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function(e) {
 					fired = true;
 				});
 				setTimeout(function() {
