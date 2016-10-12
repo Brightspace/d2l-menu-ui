@@ -93,8 +93,8 @@
 
 		window.addEventListener('WebComponentsReady', function(e) {
 			page_menu = document.getElementById('menu');
-			page_menu.addEventListener('select', function(e) {
-				console.log('item selected:', e);
+			page_menu.addEventListener('d2l-menu-item-select', function(e) {
+				console.log('item selected:', e.target);
 			});
 		});
 

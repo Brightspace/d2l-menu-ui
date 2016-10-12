@@ -101,8 +101,8 @@ The selection menu items act as you would expect a checkbox or radio item to act
 * `selected` - optional for `d2l-menu-item-checkbox`/`d2l-menu-item-radio`, this will set the item to be selected by default.
 
 ```javascript
-menu.addEventListener('select', function(e) {
-	console.log('item selected:', e);
+menu.addEventListener('d2l-menu-item-select', function(e) {
+	console.log('item selected:', e.target);
 });
 ```
 

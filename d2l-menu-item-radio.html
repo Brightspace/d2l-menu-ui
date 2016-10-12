@@ -23,8 +23,8 @@
 			},
 
 			listeners: {
-				'd2l-menu-item-change': '_onItemChange',
-				'select': '_onSelect'
+				'd2l-menu-item-change': '_onChange',
+				'd2l-menu-item-select': '_onSelect'
 			},
 
 			_onSelect: function(e) {
@@ -32,7 +32,7 @@
 				this.__onSelect(e);
 			},
 
-			_onItemChange: function(e) {
+			_onChange: function(e) {
 				this.parentNode.querySelectorAll('[role="menuitemradio"]').forEach(function(item) {
 					item.set('selected', item.value === e.detail.value);
 				});

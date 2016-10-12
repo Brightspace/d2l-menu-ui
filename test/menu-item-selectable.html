@@ -44,7 +44,7 @@
 
 			it('swallows the "select" event', function (done) {
 				var fired = false;
-				menu.addEventListener('select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function(e) {
 					fired = true;
 				});
 				setTimeout(function() {
@@ -132,7 +132,7 @@
 
 			it('swallows the "select" event', function (done) {
 				var fired = false;
-				menu.addEventListener('select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function(e) {
 					fired = true;
 				});
 				setTimeout(function() {
