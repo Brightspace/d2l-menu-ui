@@ -66,7 +66,7 @@ Nested menus can be defined by placing a `d2l-menu` inside a `d2l-menu-item`.  F
 
 By default, there are several menu item types provided. These include `d2l-menu-item` (for JS handlers), `d2l-menu-item-link` (for navigating), and `d2l-menu-item-checkbox`/`d2l-menu-item-radio` (for selection).
 
-While navigation can be done in JS too, `d2l-menu-item-link` gives users the ability to right-click and open in a new tab.  If providing a JS handler, wire-up to the `select` event.  In addition, a `d2l-menu-item-separator` can be used to semantically separate menu items.
+While navigation can be done in JS too, `d2l-menu-item-link` gives users the ability to right-click and open in a new tab.  If providing a JS handler, wire-up to the `d2l-menu-item-select` event.  In addition, a `d2l-menu-item-separator` can be used to semantically separate menu items.
 
 The selection menu items act as you would expect a checkbox or radio item to act. Multiple checkboxes in the same menu may be selected, but only one radio item in a given `<d2l-menu>` may be selected at once (i.e. selecting one option will deselect all the other `d2l-menu-item-radio` items).
 
@@ -86,11 +86,16 @@ The selection menu items act as you would expect a checkbox or radio item to act
 	<d2l-menu-item-link href="http://..." prevent-default>Will not open automatically</d2l-menu-item-link>
 </d2l-menu>
 
-<d2l-menu id="selectable-menu" label="Some Options">
+<d2l-menu id="checkbox-menu" label="Some Options">
 	<d2l-menu-item-checkbox text="Checkbox 1" value="1"></d2l-menu-item-checkbox>
 	<d2l-menu-item-checkbox text="Checkbox 2" value="2"></d2l-menu-item-checkbox>
+	<d2l-menu-item-checkbox text="Checkbox 3" value="3"></d2l-menu-item-checkbox>
+</d2l-menu>
+
+<d2l-menu id="radio-menu" label="Some Options">
 	<d2l-menu-item-radio text="Radio 1" value="1" selected></d2l-menu-item-radio>
 	<d2l-menu-item-radio text="Radio 2" value="2"></d2l-menu-item-radio>
+	<d2l-menu-item-radio text="Radio 3" value="3"></d2l-menu-item-radio>
 </d2l-menu>
 ```
 
