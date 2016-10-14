@@ -13,16 +13,16 @@
 
 			:host(:hover),
 			:host(:focus),
-			:host(:hover) > d2l-icon,
-			:host(:focus) > d2l-icon {
+			:host(:hover) d2l-icon,
+			:host(:focus) d2l-icon {
 				color: var(--d2l-color-celestine);
 			}
 
-			:host > d2l-icon {
+			:host d2l-icon {
 				visibility: hidden;
 			}
 
-			:host([aria-checked="true"]) > d2l-icon {
+			:host([aria-checked="true"]) d2l-icon {
 				visibility: visible;
 			}
 		</style>

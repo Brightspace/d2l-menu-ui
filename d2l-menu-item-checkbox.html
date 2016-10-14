@@ -1,12 +1,27 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="d2l-menu-item-selectable-styles.html">
 <link rel="import" href="d2l-menu-item-selectable-behavior.html">
 
 <dom-module id="d2l-menu-item-checkbox">
 	<template>
-		<style include="d2l-menu-item-selectable-styles"></style>
-		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
+		<style include="d2l-menu-item-selectable-styles">
+			.checkmark-box {
+				display: inline-block;
+				border: 1px solid var(--d2l-color-tungsten);
+				border-radius: 6px;
+				padding: 1px;
+			}
+
+			:host(:hover) .checkmark-box,
+			:host(:focus) .checkmark-box {
+				border-color: var(--d2l-color-celestine);
+			}
+		</style>
+		<div class="checkmark-box">
+			<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
+		</div>
 		<span>[[text]]</span>
 	</template>
 	<script>
