@@ -5,8 +5,14 @@
 
 <dom-module id="d2l-menu-item-radio">
 	<template>
-		<style include="d2l-menu-item-selectable-styles"></style>
-		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
+		<style include="d2l-menu-item-selectable-styles">
+			.icon-border {
+				border: 1px transparent;
+			}
+		</style>
+		<div class="icon-border">
+			<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
+		</div>
 		<span>[[text]]</span>
 	</template>
 	<script>

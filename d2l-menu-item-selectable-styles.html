@@ -6,9 +6,18 @@
 	<template>
 		<style include="d2l-menu-item-styles">
 			:host {
-				display: block;
+				display: flex;
 				padding: 0.9rem 1rem;
+			}
+
+			:host > span {
+				flex: auto;
 				line-height: 1.2rem;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				text-decoration: none;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 
 			:host(:hover),
@@ -19,11 +28,32 @@
 			}
 
 			:host d2l-icon {
+				flex: none;
 				visibility: hidden;
 			}
 
 			:host([aria-checked="true"]) d2l-icon {
 				visibility: visible;
+			}
+
+			.icon-border {
+				flex: none;
+				border: 1px solid var(--d2l-color-tungsten);
+				border-radius: 6px;
+				padding: 1px;
+				margin-right: 1rem;
+				height: 0.9rem;
+				width: 0.9rem;
+			}
+
+			:host-context([dir="rtl"]) .icon-border {
+				margin-right: 0;
+				margin-left: 1rem;
+			}
+
+			:host(:hover) .icon-border,
+			:host(:focus) .icon-border {
+				border-color: var(--d2l-color-celestine);
 			}
 		</style>
 	</template>
