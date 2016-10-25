@@ -8,6 +8,7 @@
 			:host {
 				display: flex;
 				padding: 0.9rem 1rem;
+				align-items: center
 			}
 
 			:host > span {
@@ -22,38 +23,19 @@
 
 			:host(:hover),
 			:host(:focus),
-			:host(:hover) d2l-icon,
-			:host(:focus) d2l-icon {
+			:host(:hover) > d2l-icon,
+			:host(:focus) > d2l-icon {
 				color: var(--d2l-color-celestine);
 			}
 
-			:host d2l-icon {
+			:host > d2l-icon {
 				flex: none;
 				visibility: hidden;
+				margin-right: 0.8rem;
 			}
 
-			:host([aria-checked="true"]) d2l-icon {
+			:host([aria-checked="true"]) > d2l-icon {
 				visibility: visible;
-			}
-
-			.icon-border {
-				flex: none;
-				border: 1px solid var(--d2l-color-tungsten);
-				border-radius: 6px;
-				padding: 1px;
-				margin-right: 0.9rem;
-				height: 0.9rem;
-				width: 0.9rem;
-			}
-
-			:host-context([dir="rtl"]) .icon-border {
-				margin-right: 0;
-				margin-left: 1rem;
-			}
-
-			:host(:hover) .icon-border,
-			:host(:focus) .icon-border {
-				border-color: var(--d2l-color-celestine);
 			}
 		</style>
 	</template>
