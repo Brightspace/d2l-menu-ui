@@ -6,9 +6,19 @@
 	<template>
 		<style include="d2l-menu-item-styles">
 			:host {
-				display: block;
+				display: flex;
 				padding: 0.9rem 1rem;
+				align-items: center
+			}
+
+			:host > span {
+				flex: auto;
 				line-height: 1.2rem;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				text-decoration: none;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 
 			:host(:hover),
@@ -19,7 +29,9 @@
 			}
 
 			:host > d2l-icon {
+				flex: none;
 				visibility: hidden;
+				margin-right: 0.8rem;
 			}
 
 			:host([aria-checked="true"]) > d2l-icon {
