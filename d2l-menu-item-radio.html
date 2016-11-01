@@ -33,9 +33,11 @@
 			},
 
 			_onChange: function(e) {
-				this.parentNode.querySelectorAll('[role="menuitemradio"]').forEach(function(item) {
-					item.set('selected', item.value === e.detail.value);
-				});
+				var items = this.parentNode.querySelectorAll('[role="menuitemradio"]');
+
+				for (var i = 0; i < items.length; i++) {
+					items[i].set('selected', items[i].value === e.detail.value);
+				}
 			}
 
 		});
