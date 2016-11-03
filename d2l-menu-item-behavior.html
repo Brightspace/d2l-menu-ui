@@ -126,6 +126,7 @@
 			}
 			if (e.keyCode === this.__keyCodes.ENTER || e.keyCode === this.__keyCodes.SPACE) {
 				e.stopPropagation();
+				e.preventDefault();
 				this.__action();
 				return;
 			}
