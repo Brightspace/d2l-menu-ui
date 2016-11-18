@@ -22,9 +22,16 @@
 				'role': 'menuitemradio'
 			},
 
-			listeners: {
-				'd2l-menu-item-change': '_onChange',
-				'd2l-menu-item-select': '_onSelect'
+			attached: function() {
+				Polymer.RenderStatus.afterNextRender(this, function() {
+					this.listen(this, 'd2l-menu-item-change', '_onChange');
+					this.listen(this, 'd2l-menu-item-select', '_onSelect');
+				}.bind(this));
+			},
+
+			detached: function() {
+				this.unlisten(this, 'd2l-menu-item-change', '_onChange');
+				this.unlisten(this, 'd2l-menu-item-select', '_onSelect');
 			},
 
 			_onSelect: function(e) {
