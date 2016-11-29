@@ -11,27 +11,12 @@
 			tabindex: -1
 		},
 
-		listeners: {
-			'blur': '__onBlur',
-			'click': '__onClick',
-			'd2l-hierarchical-view-hide-complete': '__onHideComplete',
-			'dom-change': '__onDomChange',
-			'focus': '__onFocus',
-			'keydown': '__onKeyDown',
-			'mouseenter': '__onMouseEnter',
-			'mouseleave': '__onMouseLeave'
-		},
-
 		properties: {
 			disabled: {
 				type: Boolean,
-				reflectToAttribute: true,
-				value: false
+				reflectToAttribute: true
 			},
-			hasChildView: {
-				type: Boolean,
-				value: false
-			},
+			hasChildView: Boolean,
 			text: String,
 			hidden: {
 				type: Boolean,
@@ -51,7 +36,34 @@
 
 		ready: function() {
 			this.__initialize();
-			Polymer.dom(this).observeNodes(this.__initialize);
+		},
+
+		attached: function() {
+
+			Polymer.RenderStatus.afterNextRender(this, function() {
+				Polymer.dom(this).observeNodes(this.__initialize);
+
+				this.listen(this, 'blur', '__onBlur');
+				this.listen(this, 'click', '__onClick');
+				this.listen(this, 'd2l-hierarchical-view-hide-complete', '__onHideComplete');
+				this.listen(this, 'dom-change', '__onDomChange');
+				this.listen(this, 'focus', '__onFocus');
+				this.listen(this, 'keydown', '__onKeyDown');
+				this.listen(this, 'mouseenter', '__onMouseEnter');
+				this.listen(this, 'mouseleave', '__onMouseLeave');
+			}.bind(this));
+
+		},
+
+		detached: function() {
+			this.unlisten(this, 'blur', '__onBlur');
+			this.unlisten(this, 'click', '__onClick');
+			this.unlisten(this, 'd2l-hierarchical-view-hide-complete', '__onHideComplete');
+			this.unlisten(this, 'dom-change', '__onDomChange');
+			this.unlisten(this, 'focus', '__onFocus');
+			this.unlisten(this, 'keydown', '__onKeyDown');
+			this.unlisten(this, 'mouseenter', '__onMouseEnter');
+			this.unlisten(this, 'mouseleave', '__onMouseLeave');
 		},
 
 		__initialize: function() {

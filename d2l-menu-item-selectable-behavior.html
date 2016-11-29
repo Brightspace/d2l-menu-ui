@@ -12,8 +12,7 @@
 		properties: {
 			selected: {
 				type: Boolean,
-				value: false,
-				observer: '_onSelectedChanged',
+				observer: '__onSelectedChanged',
 				reflectToAttribute: true
 			},
 			value: String
@@ -28,13 +27,13 @@
 			});
 		},
 
-		_onSelectedChanged: function(selected) {
+		__onSelectedChanged: function(selected) {
 			selected ? this.setAttribute('aria-checked', true) : this.removeAttribute('aria-checked');
 		}
 
 	};
 
-	/** @polymerBehavior window.D2L.PolymerBehaviors.MenuItemSelectableBehavior **/
+	/** @polymerBehavior */
 	window.D2L.PolymerBehaviors.MenuItemSelectableBehavior = [
 		MenuItemSelectableBehavior,
 		window.D2L.PolymerBehaviors.MenuItemBehavior
