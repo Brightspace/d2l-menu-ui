@@ -12,13 +12,13 @@
     "package.json"
   ],
   "dependencies": {
-    "d2l-colors": "^2.1.0",
+    "d2l-colors": "^2.2.2",
     "d2l-hierarchical-view": "^0.1.1",
-    "d2l-icons": "^2.9.6",
-    "polymer": "^1.5.0"
+    "d2l-icons": "^2.14.1",
+    "polymer": "^1.7.0"
   },
   "devDependencies": {
-    "d2l-demo-template": "~0.0.3",
+    "d2l-demo-template": "~0.0.7",
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
     "web-component-tester": "^4.2.2"
   }
