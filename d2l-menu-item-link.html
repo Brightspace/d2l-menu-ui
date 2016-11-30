@@ -36,10 +36,6 @@
 				window.D2L.PolymerBehaviors.MenuItemBehavior
 			],
 
-			listeners: {
-				'd2l-menu-item-select': '_onSelect'
-			},
-
 			properties: {
 				href: String,
 				preventDefault: {
@@ -51,15 +47,6 @@
 			_onClick: function(e) {
 				if (this.preventDefault) {
 					e.preventDefault();
-				}
-			},
-
-			_onSelect: function(e) {
-				if (
-					(Polymer.dom(e).rootTarget !== this.$$('a')) &&
-					!this.preventDefault
-				) {
-					window.location.assign(this.href);
 				}
 			}
 
