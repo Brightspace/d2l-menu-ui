@@ -44,9 +44,25 @@
 				}
 			},
 
+			attached: function() {
+				Polymer.RenderStatus.afterNextRender(this, function() {
+					this.listen(this, 'd2l-menu-item-select', '_onSelect');
+				}.bind(this));
+			},
+
+			detached: function() {
+				this.unlisten(this, 'd2l-menu-item-select', '_onSelect');
+			},
+
 			_onClick: function(e) {
 				if (this.preventDefault) {
 					e.preventDefault();
+				}
+			},
+
+			_onSelect: function(e) {
+				if ((Polymer.dom(e).rootTarget !== this.$$('a')) && !this.preventDefault) {
+					window.location.assign(this.href);
 				}
 			}
 
