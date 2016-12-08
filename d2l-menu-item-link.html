@@ -25,7 +25,7 @@
 			}
 
 		</style>
-		<a href$="[[href]]" tabindex="-1" on-click="_onClick">[[text]]</a>
+		<a href$="[[href]]" tabindex="-1">[[text]]</a>
 	</template>
 
 	<script>
@@ -47,11 +47,13 @@
 			attached: function() {
 				Polymer.RenderStatus.afterNextRender(this, function() {
 					this.listen(this, 'd2l-menu-item-select', '_onSelect');
+					this.listen(this.$$('a'), 'click', '_onClick');
 				}.bind(this));
 			},
 
 			detached: function() {
 				this.unlisten(this, 'd2l-menu-item-select', '_onSelect');
+				this.unlisten(this.$$('a'), 'click', '_onClick');
 			},
 
 			_onClick: function(e) {
