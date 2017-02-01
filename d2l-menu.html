@@ -16,79 +16,79 @@
 				width: 100%;
 			}
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			.d2l-menu-items ::content > [role="menuitem"],
-			.d2l-menu-items ::content > [role="menuitemcheckbox"],
-			.d2l-menu-items ::content > [role="menuitemradio"] {
+			.d2l-menu-items ::slotted([role="menuitem"]),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted([role="menuitemradio"]) {
 				border: 1px solid transparent;
 				border-top-color: var(--d2l-color-gypsum);
 				color: var(--d2l-color-ferrite);
 			}
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"],
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitemcheckbox"],
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitemradio"] {
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]) {
 				border-top-color: transparent;
 			}
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"]:focus,
 			.d2l-menu-items d2l-menu-item-return[role="menuitem"]:hover,
-			.d2l-menu-items ::content > [role="menuitem"]:focus,
-			.d2l-menu-items ::content > [role="menuitem"]:hover,
-			.d2l-menu-items ::content > [role="menuitemcheckbox"]:focus,
-			.d2l-menu-items ::content > [role="menuitemcheckbox"]:hover,
-			.d2l-menu-items ::content > [role="menuitemradio"]:focus,
-			.d2l-menu-items ::content > [role="menuitemradio"]:hover,
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"]:focus,
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitem"]:hover,
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitemcheckbox"]:focus,
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitemcheckbox"]:hover,
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitemradio"]:focus,
-			.d2l-menu-items ::content > .d2l-menu-item-first[role="menuitemradio"]:hover {
+			.d2l-menu-items ::slotted([role="menuitem"]:focus),
+			.d2l-menu-items ::slotted([role="menuitem"]:hover),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover),
+			.d2l-menu-items ::slotted([role="menuitemradio"]:focus),
+			.d2l-menu-items ::slotted([role="menuitemradio"]:hover),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:focus),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:hover),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:focus),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:hover),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:focus),
+			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:hover) {
 				background-color: var(--d2l-color-celestine-light-1);
 				border-top: 1px solid var(--d2l-color-celestine-light-2);
 				border-bottom: 1px solid var(--d2l-color-celestine-light-2);
 				color: var(--d2l-color-celestine);
 			}
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitem"]:focus,
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitem"]:hover,
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitemcheckbox"]:focus,
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitemcheckbox"]:hover,
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitemradio"]:focus,
-			.d2l-menu-items ::content > .d2l-menu-item-last[role="menuitemradio"]:hover {
+			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
+			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:hover),
+			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:focus),
+			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:hover),
+			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:focus),
+			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:hover) {
 				border-bottom-color: var(--d2l-color-celestine-light-2);
 			}
-			.d2l-menu-items.d2l-menu-item-return-hover ::content > [role="menuitem"]:first-child,
-			.d2l-menu-items.d2l-menu-item-return-focus ::content > [role="menuitem"]:first-child,
-			.d2l-menu-items.d2l-menu-item-return-hover ::content > [role="menuitemcheckbox"]:first-child,
-			.d2l-menu-items.d2l-menu-item-return-focus ::content > [role="menuitemcheckbox"]:first-child,
-			.d2l-menu-items.d2l-menu-item-return-hover ::content > [role="menuitemradio"]:first-child,
-			.d2l-menu-items.d2l-menu-item-return-focus ::content > [role="menuitemradio"]:first-child,
-			.d2l-menu-items ::content > [role="menuitem"]:focus + [role="menuitem"],
-			.d2l-menu-items ::content > [role="menuitem"]:hover + [role="menuitem"],
-			.d2l-menu-items ::content > [role="menuitemcheckbox"]:focus + [role="menuitemcheckbox"],
-			.d2l-menu-items ::content > [role="menuitemcheckbox"]:hover + [role="menuitemcheckbox"],
-			.d2l-menu-items ::content > [role="menuitemradio"]:focus + [role="menuitemradio"],
-			.d2l-menu-items ::content > [role="menuitemradio"]:hover + [role="menuitemradio"] {
+			.d2l-menu-items.d2l-menu-item-return-hover ::slotted([role="menuitem"]:first-child),
+			.d2l-menu-items.d2l-menu-item-return-focus ::slotted([role="menuitem"]:first-child),
+			.d2l-menu-items.d2l-menu-item-return-hover ::slotted([role="menuitemcheckbox"]:first-child),
+			.d2l-menu-items.d2l-menu-item-return-focus ::slotted([role="menuitemcheckbox"]:first-child),
+			.d2l-menu-items.d2l-menu-item-return-hover ::slotted([role="menuitemradio"]:first-child),
+			.d2l-menu-items.d2l-menu-item-return-focus ::slotted([role="menuitemradio"]:first-child),
+			.d2l-menu-items ::slotted([role="menuitem"]:focus + [role="menuitem"]),
+			.d2l-menu-items ::slotted([role="menuitem"]:hover + [role="menuitem"]),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus + [role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover + [role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted([role="menuitemradio"]:focus + [role="menuitemradio"]),
+			.d2l-menu-items ::slotted([role="menuitemradio"]:hover + [role="menuitemradio"]) {
 				border-top-color: transparent;
 			}
-			.d2l-menu-items ::content > d2l-menu-item-separator {
+			.d2l-menu-items ::slotted(d2l-menu-item-separator) {
 				border: 0;
 			}
-			.d2l-menu-items ::content > d2l-menu-item-separator + [role="menuitem"],
-			.d2l-menu-items ::content > d2l-menu-item-separator + [role="menuitemcheckbox"],
-			.d2l-menu-items ::content > d2l-menu-item-separator + [role="menuitemradio"] {
+			.d2l-menu-items ::slotted(d2l-menu-item-separator + [role="menuitem"]),
+			.d2l-menu-items ::slotted(d2l-menu-item-separator + [role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted(d2l-menu-item-separator + [role="menuitemradio"]) {
 				border-top: 1px solid var(--d2l-color-pressicus);
 			}
-			.d2l-menu-items ::content > [role="menuitem"]:focus + d2l-menu-item-separator + [role="menuitem"],
-			.d2l-menu-items ::content > [role="menuitem"]:hover + d2l-menu-item-separator + [role="menuitem"],
-			.d2l-menu-items ::content > [role="menuitemcheckbox"]:focus + d2l-menu-item-separator + [role="menuitemcheckbox"],
-			.d2l-menu-items ::content > [role="menuitemcheckbox"]:hover + d2l-menu-item-separator + [role="menuitemcheckbox"],
-			.d2l-menu-items ::content > [role="menuitemradio"]:focus + d2l-menu-item-separator + [role="menuitemradio"],
-			.d2l-menu-items ::content > [role="menuitemradio"]:hover + d2l-menu-item-separator + [role="menuitemradio"] {
+			.d2l-menu-items ::slotted([role="menuitem"]:focus + d2l-menu-item-separator + [role="menuitem"]),
+			.d2l-menu-items ::slotted([role="menuitem"]:hover + d2l-menu-item-separator + [role="menuitem"]),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus + d2l-menu-item-separator + [role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover + d2l-menu-item-separator + [role="menuitemcheckbox"]),
+			.d2l-menu-items ::slotted([role="menuitemradio"]:focus + d2l-menu-item-separator + [role="menuitemradio"]),
+			.d2l-menu-items ::slotted([role="menuitemradio"]:hover + d2l-menu-item-separator + [role="menuitemradio"]) {
 				border-top-color: transparent;
 			}
 		</style>
 		<div class="d2l-menu-items d2l-hierarchical-view-content">
-			<content></content>
+			<slot></slot>
 		</div>
 	</template>
 
