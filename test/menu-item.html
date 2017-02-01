@@ -33,8 +33,9 @@
 
 			var menu;
 
-			beforeEach(function() {
+			beforeEach(function(done) {
 				menu = fixture('menu');
+				Polymer.RenderStatus.afterNextRender(menu, done);
 			});
 
 			it('has role="menuitem"', function() {

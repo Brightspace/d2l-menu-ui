@@ -28,9 +28,10 @@
 
 			var menu, checkbox;
 
-			beforeEach(function () {
+			beforeEach(function (done) {
 				menu = fixture('menu');
 				checkbox = menu.querySelector('#check1');
+				Polymer.RenderStatus.afterNextRender(menu, done);
 			});
 
 			it('has role="menuitemcheckbox"', function () {
