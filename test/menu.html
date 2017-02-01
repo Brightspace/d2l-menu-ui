@@ -56,8 +56,9 @@
 
 			describe('basic menu', function() {
 
-				beforeEach(function() {
+				beforeEach(function(done) {
 					menu = fixture('basicMenu');
+					Polymer.RenderStatus.afterNextRender(menu, done);
 				});
 
 				it('has role="menu"', function() {
@@ -76,8 +77,9 @@
 
 			describe('nested menu', function() {
 
-				beforeEach(function() {
+				beforeEach(function(done) {
 					menu = fixture('nestedMenu');
+					Polymer.RenderStatus.afterNextRender(menu, done);
 				});
 
 				it('sets label for nested menu to the opener item text', function() {
@@ -85,7 +87,7 @@
 				});
 
 				it('shows nested menu when opener is clicked', function(done) {
-					menu.addEventListener('show-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
 						expect(menu.querySelector('#nestedMenu').isActive()).to.be.true;
 						done();
 					});
@@ -93,7 +95,7 @@
 				});
 
 				it('sets focus to d2l-menu-item-return when nested menu is displayed', function(done) {
-					menu.addEventListener('show-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
 						var focused = (document.activeElement.tagName === 'D2L-MENU-ITEM-RETURN');
 						if (!focused) {
 							focused = (document.activeElement === menu.querySelector('#nestedMenu'));
@@ -105,7 +107,7 @@
 				});
 
 				it('shows nested menu when right arrow is pressed on opener', function(done) {
-					menu.addEventListener('show-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
 						expect(menu.querySelector('#nestedMenu').isActive()).to.be.true;
 						done();
 					});
@@ -113,33 +115,33 @@
 				});
 
 				it('hides nested menu when left arrow is pressed in nested menu', function(done) {
-					menu.addEventListener('hide-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-hide-complete', function() {
 						expect(menu.isActive()).to.be.true;
 						done();
 					});
-					menu.addEventListener('show-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
 						MockInteractions.keyDownOn(menu.querySelector('#b2'), 37);
 					});
 					menu.querySelector('#b1').click();
 				});
 
 				it('hides nested menu when escape is pressed in nested menu', function(done) {
-					menu.addEventListener('hide-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-hide-complete', function() {
 						expect(menu.isActive()).to.be.true;
 						done();
 					});
-					menu.addEventListener('show-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
 						MockInteractions.keyDownOn(menu.querySelector('#a2'), 27);
 					});
 					menu.querySelector('#b1').click();
 				});
 
 				it('hides nested menu when d2l-menu-item-return is clicked', function(done) {
-					menu.addEventListener('hide-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-hide-complete', function() {
 						expect(menu.isActive()).to.be.true;
 						done();
 					});
-					menu.addEventListener('show-complete', function() {
+					menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
 						var returnItem = menu.querySelector('#nestedMenu')._getMenuItemReturn();
 						returnItem.click();
 					});
@@ -157,8 +159,9 @@
 					target.dispatchEvent(e);
 				};
 
-				beforeEach(function() {
+				beforeEach(function(done) {
 					menu = fixture('focusMenu');
+					Polymer.RenderStatus.afterNextRender(menu, done);
 				});
 
 				it('sets tabindex equal to 0 for first menu item', function() {
