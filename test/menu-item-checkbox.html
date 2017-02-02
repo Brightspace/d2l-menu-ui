@@ -104,7 +104,7 @@
 			it('does not affect other checkboxes in the menu when selected', function (done) {
 				checkbox.addEventListener('d2l-menu-item-change', function(e) {
 					expect(checkbox.selected).to.be.true;
-					expect(menu.querySelector('#check2').selected).to.be.false;
+					expect(menu.querySelector('#check2').selected).not.to.be.true;
 					done();
 				});
 				checkbox.click();
