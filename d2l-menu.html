@@ -359,6 +359,7 @@
 				if (rootTarget === this.$$('d2l-menu-item-return')) {
 					Polymer.dom(this.$$('.d2l-menu-items')).classList.add('d2l-menu-item-return-hover');
 				}
+				rootTarget.focus();
 			},
 
 			_onMenuItemMouseLeave: function(e) {
