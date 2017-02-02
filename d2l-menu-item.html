@@ -30,7 +30,7 @@
 
 		</style>
 		<span>[[text]]</span>
-		<content></content>
+		<slot></slot>
 	</template>
 
 	<script>
@@ -46,7 +46,7 @@
 					var icon = document.createElement('d2l-icon');
 					Polymer.dom(icon).setAttribute('icon', 'd2l-tier1:chevron-right');
 					Polymer.dom(this.root).insertBefore(
-						icon, this.$$('content')
+						icon, this.$$('slot')
 					);
 				}
 			}
