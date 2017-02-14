@@ -25,7 +25,7 @@
 			}
 
 		</style>
-		<a href$="[[href]]" tabindex="-1">[[text]]</a>
+		<a href$="[[href]]" target$=[[target]] tabindex="-1">[[text]]</a>
 	</template>
 
 	<script>
@@ -41,7 +41,8 @@
 				preventDefault: {
 					type: Boolean,
 					reflectToAttribute: true
-				}
+				},
+				target: String
 			},
 
 			attached: function() {
@@ -62,9 +63,15 @@
 				}
 			},
 
-			_onSelect: function(e) {
-				if ((Polymer.dom(e).rootTarget !== this.$$('a')) && !this.preventDefault) {
-					window.location.assign(this.href);
+			_onSelect: function() {
+				if (!this.preventDefault) {
+					if (this.target === '_parent') {
+						window.parent.location.assign(this.href);
+					} else if (this.target === '_top') {
+						window.top.location.assign(this.href);
+					} else {
+						window.location.assign(this.href);
+					}
 				}
 			}
 
