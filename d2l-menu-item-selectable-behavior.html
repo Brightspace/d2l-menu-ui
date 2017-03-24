@@ -18,9 +18,7 @@
 			value: String
 		},
 
-		__onSelect: function(e) {
-			e.preventDefault();
-			e.stopPropagation();
+		__onSelect: function() {
 			this.fire('d2l-menu-item-change', {
 				value: this.value,
 				selected: this.selected
