@@ -1,20 +1,26 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-icons/tier1-icons.html">
 <link rel="import" href="../d2l-icons/d2l-icon.html">
+<link rel="import" href="../d2l-offscreen/d2l-offscreen-shared-styles.html">
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
+<link rel="import" href="localize-behavior.html">
 
 <dom-module id="d2l-menu-item-return">
 
 	<template>
-		<style include="d2l-menu-item-styles">
+		<style include="d2l-menu-item-styles d2l-offscreen-shared-styles">
 
 			:host {
 				display: flex;
 				padding: 0.75rem 1rem;
 			}
 
-			:host > span {
+			:host span.offscreen-text {
+				@apply(--d2l-offscreen);
+			}
+
+			:host span.visible-text {
 				flex: auto;
 				line-height: 1rem;
 				overflow-x: hidden;
@@ -37,7 +43,8 @@
 
 		</style>
 		<d2l-icon icon="d2l-tier1:chevron-left"></d2l-icon>
-		<span>[[text]]</span>
+		<span class="offscreen-text">{{localize('returnToPreviousMenu')}}</span>
+		<span class="visible-text">[[text]]</span>
 		<slot></slot>
 	</template>
 
@@ -46,7 +53,8 @@
 			is: 'd2l-menu-item-return',
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehavior
+				window.D2L.PolymerBehaviors.MenuItemBehavior,
+				window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior
 			]
 
 		});

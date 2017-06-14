@@ -1,0 +1,90 @@
+<link rel="import" href="../app-localize-behavior/app-localize-behavior.html">
+<script>
+(function() {
+	'use strict';
+	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
+	var LocalizeBehavior = {
+		properties: {
+			language: {
+				type: String,
+				computed: '_computeLanguage(resources)'
+			},
+			resources: {
+				value: function() {
+					var ar = {
+						'returnToPreviousMenu': ''
+					};
+					var en = {
+						'returnToPreviousMenu': 'Returns to previous menu.'
+					};
+					var es = {
+						'returnToPreviousMenu': ''
+					};
+					var fi = {
+						'returnToPreviousMenu': ''
+					};
+					var fr = {
+						'returnToPreviousMenu': ''
+					};
+					var ja = {
+						'returnToPreviousMenu': ''
+					};
+					var ko = {
+						'returnToPreviousMenu': ''
+					};
+					var pt = {
+						'returnToPreviousMenu': ''
+					};
+					var sv = {
+						'returnToPreviousMenu': ''
+					};
+					var tr = {
+						'returnToPreviousMenu': ''
+					};
+					var zhCN = {
+						'returnToPreviousMenu': ''
+					};
+					var zhTW = {
+						'returnToPreviousMenu': ''
+					};
+					return {
+						'ar': ar,
+						'en': en,
+						'es': es,
+						'fi': fi,
+						'fr': fr,
+						'ja': ja,
+						'ko': ko,
+						'pt': pt,
+						'sv': sv,
+						'tr': tr,
+						'zh': zhCN,
+						'zh-tw': zhTW
+					};
+				}
+			}
+		},
+		_computeLanguage: function(resources) {
+			var locale = document.documentElement.lang
+				|| document.documentElement.getAttribute('data-lang-default')
+				|| 'en-us';
+			locale = locale.toLowerCase();
+			if (resources[locale]) {
+				return locale;
+			}
+			var langAndRegion = locale.split('-');
+			if (resources[langAndRegion[0]]) {
+				return langAndRegion[0];
+			}
+			return 'en';
+		}
+	};
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+	/** @polymerBehavior */
+	window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior = [
+		Polymer.AppLocalizeBehavior,
+		LocalizeBehavior
+	];
+})();
+</script>
