@@ -6,7 +6,7 @@
     "postinstall": "bower install",
     "test": "npm run test:lint:js && npm run test:lint:wc",
     "test:lint:js": "eslint *.html",
-    "test:lint:wc": "polymer lint -i '*.html'",
+    "test:lint:wc": "polymer lint -i *.html",
     "test:unit:local": "polymer test --skip-plugin sauce"
   },
   "repository": {
