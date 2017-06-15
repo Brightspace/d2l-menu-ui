@@ -1,5 +1,5 @@
 <link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../localize-behavior.html">
+<link rel="import" href="../d2l-menu-item-localize-behavior.html">
 <script>
 	Polymer({
 		is: 'test-localize',
@@ -7,7 +7,7 @@
 		ready: function() {
 			Polymer.dom(this.root).appendChild(
 				document.createTextNode(
-					this.localize('returnToPreviousMenu')
+					this.localize('returnCurrentlyShowing', 'menuTitle', 'testTitle')
 				)
 			);
 		}
