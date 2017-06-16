@@ -36,6 +36,12 @@
 				margin-left: 1rem;
 			}
 
+			/* Duplicated because some browsers ignore CSS block for any invalid selector */
+			:host(:dir(rtl)) > d2l-icon {
+				margin-right: 0;
+				margin-left: 1rem;
+			}
+
 		</style>
 		<d2l-icon icon="d2l-tier1:chevron-left"></d2l-icon>
 		<span aria-hidden>[[text]]</span>
