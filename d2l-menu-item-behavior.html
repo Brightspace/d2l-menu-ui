@@ -77,7 +77,7 @@
 					this.hasChildView = true;
 					this.__children = children;
 					this.setAttribute('aria-haspopup', true);
-					this.__children[0].setAttribute('label', this.text);
+					this.__children[0].label = this.text;
 					break;
 				}
 			}
