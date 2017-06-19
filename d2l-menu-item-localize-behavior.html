@@ -2,8 +2,8 @@
 <script>
 (function() {
 	'use strict';
-	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
-	var LocalizeBehavior = {
+	/** @polymerBehavior window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
+	window.D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl = {
 		properties: {
 			language: {
 				type: String,
@@ -96,7 +96,7 @@
 	/** @polymerBehavior */
 	window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior = [
 		Polymer.AppLocalizeBehavior,
-		LocalizeBehavior
+		window.D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl
 	];
 })();
 </script>
