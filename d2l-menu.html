@@ -152,7 +152,7 @@
 					return;
 				}
 
-				this.active = !this.childView;
+				this.active = this.getActiveView() === this;
 
 				var returnItem = this.$$('d2l-menu-item-return');
 				if (!this.childView && returnItem) {
