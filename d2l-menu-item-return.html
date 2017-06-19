@@ -3,6 +3,7 @@
 <link rel="import" href="../d2l-icons/d2l-icon.html">
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
+<link rel="import" href="d2l-menu-item-localize-behavior.html">
 
 <dom-module id="d2l-menu-item-return">
 
@@ -37,7 +38,7 @@
 
 		</style>
 		<d2l-icon icon="d2l-tier1:chevron-left"></d2l-icon>
-		<span>[[text]]</span>
+		<span aria-hidden>[[text]]</span>
 		<slot></slot>
 	</template>
 
@@ -45,8 +46,28 @@
 		Polymer({
 			is: 'd2l-menu-item-return',
 
+			properties: {
+				'aria-label': {
+					type: String,
+					reflectToAttribute: true
+				},
+				text: {
+					type: String,
+					observer: '_textChanged'
+				}
+			},
+
+			ready: function() {
+				this['aria-label'] = this.localize('return');
+			},
+
+			_textChanged: function() {
+				this['aria-label'] = this.localize('returnCurrentlyShowing', 'menuTitle', this.text);
+			},
+
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehavior
+				window.D2L.PolymerBehaviors.MenuItemBehavior,
+				window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior
 			]
 
 		});
