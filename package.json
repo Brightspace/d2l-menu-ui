@@ -3,7 +3,7 @@
   "private": true,
   "description": "Polymer-based web component for a D2L menu",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "polymer install --variants",
     "test": "npm run test:lint:js && npm run test:lint:wc",
     "test:lint:js": "eslint *.html",
     "test:lint:wc": "polymer lint -i *.html",
@@ -16,10 +16,9 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "bower": "^1.7.7",
     "eslint": "^3.7.1",
     "eslint-config-brightspace": "^0.2.4",
     "eslint-plugin-html": "^1.5.3",
-    "polymer-cli": "^0.16.0"
+    "polymer-cli": "^1.2.0"
   }
 }
