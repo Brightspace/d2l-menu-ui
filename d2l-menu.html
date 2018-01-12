@@ -5,6 +5,13 @@
 <link rel="import" href="d2l-menu-item-return.html">
 <link rel="import" href="d2l-menu-item-separator.html">
 
+<!--
+`d2l-menu`
+Polymer-based web component for menus.
+
+@demo demo/menu.html
+-->
+
 <dom-module id="d2l-menu">
 
 	<template>
@@ -84,7 +91,7 @@
 			is: 'd2l-menu',
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.HierarchicalViewBehavior
+				D2L.PolymerBehaviors.HierarchicalViewBehavior
 			],
 
 			hostAttributes: {
@@ -275,7 +282,7 @@
 
 				if (e.keyCode === this._keyCodes.DOWN || e.keyCode === this._keyCodes.UP
 					|| e.keyCode === this._keyCodes.SPACE || e.keyCode === this._keyCodes.ENTER
-					|| e.keyCode === this._keyCodes.ESCAPE ) {
+					|| e.keyCode === this._keyCodes.ESCAPE) {
 					return;
 				}
 
@@ -377,7 +384,7 @@
 					Polymer.dom(item).classList.remove('d2l-menu-item-first');
 					Polymer.dom(item).classList.remove('d2l-menu-item-last');
 					if (!item.hidden) {
-						Polymer.dom(item).setAttribute('tabindex', visibleItems.length === 0 ? 0 : -1 );
+						Polymer.dom(item).setAttribute('tabindex', visibleItems.length === 0 ? 0 : -1);
 						visibleItems.push(item);
 					}
 				}

@@ -2,8 +2,12 @@
 <script>
 (function() {
 	'use strict';
-	/** @polymerBehavior window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
-	window.D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl = {
+
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+
+	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
+	D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl = {
 		properties: {
 			language: {
 				type: String,
@@ -91,12 +95,11 @@
 			return 'en';
 		}
 	};
-	window.D2L = window.D2L || {};
-	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
-	/** @polymerBehavior */
-	window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior = [
+
+	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
+	D2L.PolymerBehaviors.MenuItemLocalizeBehavior = [
 		Polymer.AppLocalizeBehavior,
-		window.D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl
+		D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl
 	];
 })();
 </script>

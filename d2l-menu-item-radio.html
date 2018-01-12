@@ -3,6 +3,13 @@
 <link rel="import" href="d2l-menu-item-selectable-styles.html">
 <link rel="import" href="d2l-menu-item-selectable-behavior.html">
 
+<!--
+`d2l-menu-item-radio`
+Polymer-based web component for radio menu items.
+
+@demo demo/radio-menu.html
+-->
+
 <dom-module id="d2l-menu-item-radio">
 	<template>
 		<style include="d2l-menu-item-selectable-styles"></style>
@@ -15,7 +22,7 @@
 			is: 'd2l-menu-item-radio',
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemSelectableBehavior
+				D2L.PolymerBehaviors.MenuItemSelectableBehavior
 			],
 
 			hostAttributes: {

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<title>d2l-menu-item-checkbox demo</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+		<link rel="import" href="../../d2l-typography/d2l-typography.html">
+		<link rel="import" href="../d2l-menu.html">
+		<link rel="import" href="../d2l-menu-item-checkbox.html">
+		<custom-style>
+			<style is="custom-style" include="demo-pages-shared-styles"></style>
+		</custom-style>
+		<custom-style include="d2l-typography">
+			<style is="custom-style" include="d2l-typography"></style>
+		</custom-style>
+		<style>
+			html {
+				font-size: 20px;
+			}
+			</style>
+	</head>
+	<body unresolved class="d2l-typography">
+		<div class="vertical-section-container centered">
+
+			<h3>Checkbox Menu</h3>
+			<demo-snippet>
+				<template>
+					<d2l-menu label="Checkbox Menu" style="max-width:400px;">
+						<d2l-menu-item-checkbox text="Checkbox 1 with a very long title that will be cut off" value="1"></d2l-menu-item-checkbox>
+						<d2l-menu-item-checkbox text="Checkbox 2" value="2"></d2l-menu-item-checkbox>
+						<d2l-menu-item-checkbox text="Checkbox 3" value="3"></d2l-menu-item-checkbox>
+					</d2l-menu>
+				</template>
+			</demo-snippet>
+
+		</div>
+		<script>
+			document.body.addEventListener('d2l-menu-item-select', function(e) {
+				console.log('item selected:', e.target);
+			});
+		</script>
+	</body>
+</html>

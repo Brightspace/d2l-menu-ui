@@ -3,8 +3,11 @@
 (function() {
 	'use strict';
 
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+
 	/** @polymerBehavior */
-	var MenuItemBehavior = {
+	D2L.PolymerBehaviors.MenuItemBehavior = {
 
 		hostAttributes: {
 			'role': 'menuitem',
@@ -159,9 +162,5 @@
 
 	};
 
-	window.D2L = window.D2L || {};
-	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
-	/** @polymerBehavior */
-	window.D2L.PolymerBehaviors.MenuItemBehavior = [MenuItemBehavior];
 })();
 </script>
