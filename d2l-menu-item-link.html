@@ -2,6 +2,11 @@
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
 
+<!--
+`d2l-menu-item-link`
+Polymer-based web component for link menu items.
+-->
+
 <dom-module id="d2l-menu-item-link">
 
 	<template>
@@ -33,16 +38,29 @@
 			is: 'd2l-menu-item-link',
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehavior
+				D2L.PolymerBehaviors.MenuItemBehavior
 			],
 
 			properties: {
+
+				/**
+				 * Standard HTML href applied to link.
+				 */
 				href: String,
+
+				/**
+				 * Whether to prevent the default behavior.
+				 */
 				preventDefault: {
 					type: Boolean,
 					reflectToAttribute: true
 				},
+
+				/**
+				 * Standard HTML target applied to link.
+				 */
 				target: String
+
 			},
 
 			attached: function() {

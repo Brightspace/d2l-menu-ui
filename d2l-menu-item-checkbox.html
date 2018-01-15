@@ -3,6 +3,13 @@
 <link rel="import" href="d2l-menu-item-selectable-styles.html">
 <link rel="import" href="d2l-menu-item-selectable-behavior.html">
 
+<!--
+`d2l-menu-item-checkbox`
+Polymer-based web component for checkbox menu items.
+
+@demo demo/checkbox-menu.html checkbox menu
+-->
+
 <dom-module id="d2l-menu-item-checkbox">
 	<template>
 		<style include="d2l-menu-item-selectable-styles"></style>
@@ -15,7 +22,7 @@
 			is: 'd2l-menu-item-checkbox',
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemSelectableBehavior
+				D2L.PolymerBehaviors.MenuItemSelectableBehavior
 			],
 
 			hostAttributes: {

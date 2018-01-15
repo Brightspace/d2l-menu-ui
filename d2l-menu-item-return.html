@@ -5,6 +5,12 @@
 <link rel="import" href="d2l-menu-item-behavior.html">
 <link rel="import" href="d2l-menu-item-localize-behavior.html">
 
+<!--
+`d2l-menu-item-link`
+Polymer-based web component for nested menu's return items. Automatically rendered
+when menus are nested.
+-->
+
 <dom-module id="d2l-menu-item-return">
 
 	<template>
@@ -72,8 +78,8 @@
 			},
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehavior,
-				window.D2L.PolymerBehaviors.MenuItemLocalizeBehavior
+				D2L.PolymerBehaviors.MenuItemBehavior,
+				D2L.PolymerBehaviors.MenuItemLocalizeBehavior
 			]
 
 		});

@@ -6,15 +6,33 @@
 
 (function() {
 
-	/** @polymerBehavior */
-	var MenuItemSelectableBehavior = {
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+
+	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemSelectableBehavior */
+	D2L.PolymerBehaviors.MenuItemSelectableBehaviorImpl = {
+
+		/**
+		 * Triggered when the selected state of the selectable menu item changes.
+		 * @event d2l-menu-item-change
+		 * @param {Boolean} selected The new selected state of the item.
+		 * @param {String} value The value associated with the item.
+		 */
 
 		properties: {
+
+			/**
+			 * Whether the menu item is selected/checked.
+			 */
 			selected: {
 				type: Boolean,
 				observer: '__onSelectedChanged',
 				reflectToAttribute: true
 			},
+
+			/**
+			 * The value associated with the item.
+			 */
 			value: String
 		},
 
@@ -33,10 +51,10 @@
 
 	};
 
-	/** @polymerBehavior */
-	window.D2L.PolymerBehaviors.MenuItemSelectableBehavior = [
-		MenuItemSelectableBehavior,
-		window.D2L.PolymerBehaviors.MenuItemBehavior
+	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemSelectableBehavior */
+	D2L.PolymerBehaviors.MenuItemSelectableBehavior = [
+		D2L.PolymerBehaviors.MenuItemSelectableBehaviorImpl,
+		D2L.PolymerBehaviors.MenuItemBehavior
 	];
 })();
 </script>

@@ -3,21 +3,45 @@
 (function() {
 	'use strict';
 
+	window.D2L = window.D2L || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+
 	/** @polymerBehavior */
-	var MenuItemBehavior = {
+	D2L.PolymerBehaviors.MenuItemBehavior = {
 
 		hostAttributes: {
 			'role': 'menuitem',
 			tabindex: -1
 		},
 
+		/**
+		 * Triggered when menu item is selected. Is not triggered by disabled menu items.
+		 * @event d2l-menu-item-select
+		 */
+
 		properties: {
+
+			/**
+			 * Whether the menu item is disabled.
+			 */
 			disabled: {
 				type: Boolean,
 				reflectToAttribute: true
 			},
+
+			/**
+			 * Indicates whether the menu has a child view.  Autmatically determined.
+			 */
 			hasChildView: Boolean,
+
+			/**
+			 * Text for the menu item.
+			 */
 			text: String,
+
+			/**
+			 * Whether the menu item is hidden.
+			 */
 			hidden: {
 				type: Boolean,
 				observer: '_onHidden',
@@ -159,9 +183,5 @@
 
 	};
 
-	window.D2L = window.D2L || {};
-	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
-	/** @polymerBehavior */
-	window.D2L.PolymerBehaviors.MenuItemBehavior = [MenuItemBehavior];
 })();
 </script>

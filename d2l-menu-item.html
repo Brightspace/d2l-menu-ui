@@ -4,6 +4,11 @@
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
 
+<!--
+`d2l-menu-item`
+Polymer-based web component for standard menu items.
+-->
+
 <dom-module id="d2l-menu-item">
 
 	<template>
@@ -38,7 +43,7 @@
 			is: 'd2l-menu-item',
 
 			behaviors: [
-				window.D2L.PolymerBehaviors.MenuItemBehavior
+				D2L.PolymerBehaviors.MenuItemBehavior
 			],
 
 			_initialize: function() {
