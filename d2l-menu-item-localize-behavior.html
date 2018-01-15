@@ -1,4 +1,4 @@
-<link rel="import" href="../app-localize-behavior/app-localize-behavior.html">
+<link rel="import" href="../d2l-localize-behavior/d2l-localize-behavior.html">
 <script>
 (function() {
 	'use strict';
@@ -9,97 +9,71 @@
 	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
 	D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl = {
 		properties: {
-			language: {
-				type: String,
-				computed: '_computeLanguage(resources)'
-			},
+			/**
+			 * Localization resources.
+			 */
 			resources: {
 				value: function() {
-					var ar = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var en = {
-						'return': 'Returns to previous menu.',
-						'returnCurrentlyShowing': 'Returns to previous menu.  You are viewing {menuTitle}.'
-					};
-					var es = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var fi = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var fr = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var ja = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var ko = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var pt = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var sv = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var tr = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var zhCN = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
-					var zhTW = {
-						'return': '',
-						'returnCurrentlyShowing': '{menuTitle}'
-					};
 					return {
-						'ar': ar,
-						'en': en,
-						'es': es,
-						'fi': fi,
-						'fr': fr,
-						'ja': ja,
-						'ko': ko,
-						'pt': pt,
-						'sv': sv,
-						'tr': tr,
-						'zh': zhCN,
-						'zh-tw': zhTW
+						'ar': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'en': {
+							'return': 'Returns to previous menu.',
+							'returnCurrentlyShowing': 'Returns to previous menu.  You are viewing {menuTitle}.'
+						},
+						'es': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'fi': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'fr': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'ja': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'ko': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'pt': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'sv': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'tr': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'zh': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						},
+						'zh-tw': {
+							'return': '',
+							'returnCurrentlyShowing': '{menuTitle}'
+						}
 					};
 				}
 			}
-		},
-		_computeLanguage: function(resources) {
-			var locale = document.documentElement.lang
-				|| document.documentElement.getAttribute('data-lang-default')
-				|| 'en-us';
-			locale = locale.toLowerCase();
-			if (resources[locale]) {
-				return locale;
-			}
-			var langAndRegion = locale.split('-');
-			if (resources[langAndRegion[0]]) {
-				return langAndRegion[0];
-			}
-			return 'en';
 		}
 	};
 
 	/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
 	D2L.PolymerBehaviors.MenuItemLocalizeBehavior = [
-		Polymer.AppLocalizeBehavior,
+		D2L.PolymerBehaviors.LocalizeBehavior,
 		D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl
 	];
+
 })();
 </script>
