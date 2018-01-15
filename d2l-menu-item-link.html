@@ -44,12 +44,25 @@ Polymer-based web component for link menu items.
 			],
 
 			properties: {
+
+				/**
+				 * Standard HTML href applied to link.
+				 */
 				href: String,
+
+				/**
+				 * Whether to prevent the default behavior.
+				 */
 				preventDefault: {
 					type: Boolean,
 					reflectToAttribute: true
 				},
+
+				/**
+				 * Standard HTML target applied to link.
+				 */
 				target: String
+
 			},
 
 			attached: function() {

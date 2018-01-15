@@ -14,13 +14,34 @@
 			tabindex: -1
 		},
 
+		/**
+		 * Triggered when menu item is selected. Is not triggered by disabled menu items.
+		 * @event d2l-menu-item-select
+		 */
+
 		properties: {
+
+			/**
+			 * Whether the menu item is disabled.
+			 */
 			disabled: {
 				type: Boolean,
 				reflectToAttribute: true
 			},
+
+			/**
+			 * Indicates whether the menu has a child view.  Autmatically determined.
+			 */
 			hasChildView: Boolean,
+
+			/**
+			 * Text for the menu item.
+			 */
 			text: String,
+
+			/**
+			 * Whether the menu item is hidden.
+			 */
 			hidden: {
 				type: Boolean,
 				observer: '_onHidden',
