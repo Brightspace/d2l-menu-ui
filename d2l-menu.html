@@ -142,7 +142,11 @@ Polymer-based web component for menus.
 
 			ready: function() {
 				this._labelChanged(this.label);
-				Polymer.dom(this).observeNodes(this._onMenuItemsChanged);
+				Polymer.dom(this).observeNodes(function() {
+					requestAnimationFrame(function() {
+						this._onMenuItemsChanged();
+					}.bind(this));
+				}.bind(this));
 			},
 
 			attached: function() {
