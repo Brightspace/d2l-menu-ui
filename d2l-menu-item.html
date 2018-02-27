@@ -19,11 +19,11 @@ Polymer-based web component for standard menu items.
 				padding: 0.75rem 1rem;
 			}
 
-			:host > .main {
+			:host > .d2l-menu-item-main {
 				flex: auto;
 			}
 
-			:host > .main > span {
+			:host > .d2l-menu-item-main > span {
 				line-height: 1rem;
 				overflow-x: hidden;
 				overflow-y: hidden;
@@ -36,33 +36,8 @@ Polymer-based web component for standard menu items.
 				margin-top: 0.1rem;
 			}
 
-			:host > .main {
-				display: flex;
-				align-items: center;
-				overflow: hidden;
-			}
-
-			:host > .main > d2l-icon {
-				padding-right: 10px;
-				flex-shrink: 0;
-			}
-
-			:host(:hover) .main > d2l-icon,
-			:host(:focus) .main > d2l-icon {
-				color: var(--d2l-color-celestine);
-			}
-
-			:host-context([dir="rtl"]) .main > d2l-icon {
-				padding-right: 0;
-				padding-left: 10px;
-			}
-
-			:host > .main > d2l-icon:not([icon]) {
-				display: none;
-			}
-
 		</style>
-		<div class="main">
+		<div class="d2l-menu-item-main">
 			<d2l-icon icon$=[[icon]] class="side-icon"></d2l-icon>
 			<span>[[text]]</span>
 		</div>
