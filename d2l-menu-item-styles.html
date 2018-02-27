@@ -24,6 +24,31 @@
 				display: none;
 			}
 
+			.d2l-menu-item-main {
+				align-items: center;
+				display: flex;
+				overflow: hidden;
+			}
+
+			.d2l-menu-item-main > d2l-icon {
+				flex-shrink: 0;
+				padding-right: 10px;
+			}
+
+			:host-context([dir="rtl"]) .d2l-menu-item-main > d2l-icon {
+				padding-left: 10px;
+				padding-right: 0;
+			}
+
+			.d2l-menu-item-main > d2l-icon:not([icon]) {
+				display: none;
+			}
+
+			:host(:hover) .d2l-menu-item-main > d2l-icon,
+			:host(:focus) .d2l-menu-item-main > d2l-icon {
+				color: var(--d2l-color-celestine);
+			}
+
 		</style>
 	</template>
 </dom-module>

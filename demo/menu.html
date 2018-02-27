@@ -130,6 +130,28 @@
 				</template>
 			</demo-snippet>
 
+			<h3>Menu Items with Icons</h3>
+			<demo-snippet>
+				<template>
+					<d2l-menu label="Astronomy" style="max-width:400px;">
+						<d2l-menu-item icon="d2l-tier1:read" text="Introduction"></d2l-menu-item>
+						<d2l-menu-item-link href="https://en.wikipedia.org/wiki/Universe" text="The Universe (link)">
+							<d2l-icon icon="d2l-tier1:link"></d2l-icon>
+						</d2l-menu-item-link>
+						<d2l-menu-item icon="d2l-tier1:pic" text="Searching the Heavens">
+							<d2l-custom-view>Searching the Heavens</d2l-custom-view>
+						</d2l-menu-item>
+						<d2l-menu-item icon="d2l-tier1:read" text="The Solar System">
+							<d2l-menu>
+								<d2l-menu-item text="Formation"></d2l-menu-item>
+								<d2l-menu-item text="Modern Solar System"></d2l-menu-item>
+								<d2l-menu-item text="Future Solar System"></d2l-menu-item>
+								<d2l-menu-item text="The Planets"></d2l-menu-item>
+							</d2l-menu>
+						</d2l-menu-item>
+					</d2l-menu>
+				</template>
+			</demo-snippet>
 		</div>
 		<script>
 			document.body.addEventListener('d2l-menu-item-select', function(e) {

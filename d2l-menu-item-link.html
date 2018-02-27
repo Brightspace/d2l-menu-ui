@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
+<link rel="import" href="../d2l-icons/d2l-icon.html">
 
 <!--
 `d2l-menu-item-link`
@@ -18,19 +19,31 @@ Polymer-based web component for link menu items.
 			}
 
 			:host > a {
+				align-items: center;
 				color: inherit;
-				display: block;
+				display: flex;
+				justify-content: space-between;
 				line-height: 1rem;
 				outline: none;
-				overflow-x: hidden;
 				padding: 0.75rem 1rem;
 				text-decoration: none;
-				text-overflow: ellipsis;
 				white-space: nowrap;
 			}
 
+			:host > a > .d2l-menu-item-main > span {
+				overflow-x: hidden;
+				text-overflow: ellipsis;
+			}
+
 		</style>
-		<a href$="[[href]]" target$=[[target]] tabindex="-1">[[text]]</a>
+
+		<a href$="[[href]]" target$=[[target]] tabindex="-1">
+			<div class="d2l-menu-item-main">
+				<d2l-icon icon$=[[icon]]></d2l-icon>
+				<span>[[text]]</span>
+			</div>
+			<slot></slot>
+		</a>
 	</template>
 
 	<script>
@@ -59,7 +72,12 @@ Polymer-based web component for link menu items.
 				/**
 				 * Standard HTML target applied to link.
 				 */
-				target: String
+				target: String,
+
+				/**
+				 * Icon to appear beside text
+				 */
+				icon: String
 
 			},
 

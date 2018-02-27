@@ -281,6 +281,7 @@ The selection menu items act as you would expect a checkbox or radio item to act
 * `value` - required for `d2l-menu-item-checkbox`/`d2l-menu-item-radio`
 * `prevent-default` - optional for `d2l-menu-item-link` - disables normal link behavior.  This can help if you want both a JS handler and the browser's 'open in new tab' functionality (e.g. popup window links).
 * `selected` - optional for `d2l-menu-item-checkbox`/`d2l-menu-item-radio`, this will set the item to be selected by default.
+* `icon` - optional for `d2l-menu-item`/`d2l-menu-item-link`. This will add an icon to the left of the text. Should be of the form `"d2l-tier1:pic"`.
 
 ```javascript
 menu.addEventListener('d2l-menu-item-select', function(e) {

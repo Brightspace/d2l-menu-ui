@@ -19,8 +19,11 @@ Polymer-based web component for standard menu items.
 				padding: 0.75rem 1rem;
 			}
 
-			:host > span {
+			:host > .d2l-menu-item-main {
 				flex: auto;
+			}
+
+			:host > .d2l-menu-item-main > span {
 				line-height: 1rem;
 				overflow-x: hidden;
 				overflow-y: hidden;
@@ -34,7 +37,10 @@ Polymer-based web component for standard menu items.
 			}
 
 		</style>
-		<span>[[text]]</span>
+		<div class="d2l-menu-item-main">
+			<d2l-icon icon$=[[icon]] class="side-icon"></d2l-icon>
+			<span>[[text]]</span>
+		</div>
 		<slot></slot>
 	</template>
 
@@ -42,12 +48,21 @@ Polymer-based web component for standard menu items.
 		Polymer({
 			is: 'd2l-menu-item',
 
+			properties: {
+
+				/**
+				 * Icon to appear beside text
+				 */
+				icon: String
+
+			},
+
 			behaviors: [
 				D2L.PolymerBehaviors.MenuItemBehavior
 			],
 
 			_initialize: function() {
-				if (this.hasChildView && !this.$$('d2l-icon')) {
+				if (this.hasChildView && !this.$$('d2l-icon:not(.side-icon)')) {
 					var icon = document.createElement('d2l-icon');
 					Polymer.dom(icon).setAttribute('icon', 'd2l-tier1:chevron-right');
 					Polymer.dom(this.root).insertBefore(
