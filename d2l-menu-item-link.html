@@ -1,6 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="d2l-menu-item-styles.html">
 <link rel="import" href="d2l-menu-item-behavior.html">
+<link rel="import" href="../d2l-icons/d2l-icon.html">
+<link rel="import" href="../d2l-icons/tier1-icons.html">
 
 <!--
 `d2l-menu-item-link`
@@ -19,18 +21,54 @@ Polymer-based web component for link menu items.
 
 			:host > a {
 				color: inherit;
-				display: block;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 				line-height: 1rem;
 				outline: none;
-				overflow-x: hidden;
-				padding: 0.75rem 1rem;
 				text-decoration: none;
-				text-overflow: ellipsis;
 				white-space: nowrap;
+				padding: 0.75rem 1rem;
 			}
 
+			:host > a > .main {
+				display: flex;
+				align-items: center;
+				overflow: hidden;
+			}
+
+			:host > a > .main > span {
+				overflow-x: hidden;
+				text-overflow: ellipsis;
+			}
+
+			:host > a > .main > d2l-icon {
+				padding-right: 10px;
+				flex-shrink: 0;
+			}
+
+			:host(:hover) a > .main > d2l-icon,
+			:host(:focus) a > .main > d2l-icon {
+				color: var(--d2l-color-celestine);
+			}
+
+			:host-context([dir="rtl"]) :host > a > .main > d2l-icon {
+				padding-right: 0;
+				padding-left: 10px;
+			}
+
+			:host > a > .main > d2l-icon:not([icon]) {
+				display: none;
+			}
 		</style>
-		<a href$="[[href]]" target$=[[target]] tabindex="-1">[[text]]</a>
+
+		<a href$="[[href]]" target$=[[target]] tabindex="-1">
+			<div class="main">
+				<d2l-icon icon$=[[icon]]></d2l-icon>
+				<span>[[text]]</span>
+			</div>
+			<slot></slot>
+		</a>
 	</template>
 
 	<script>
@@ -59,7 +97,12 @@ Polymer-based web component for link menu items.
 				/**
 				 * Standard HTML target applied to link.
 				 */
-				target: String
+				target: String,
+
+				/**
+				 * Icon to appear beside text
+				 */
+				icon: String
 
 			},
 

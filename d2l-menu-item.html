@@ -19,8 +19,11 @@ Polymer-based web component for standard menu items.
 				padding: 0.75rem 1rem;
 			}
 
-			:host > span {
+			:host > .main {
 				flex: auto;
+			}
+
+			:host > .main > span {
 				line-height: 1rem;
 				overflow-x: hidden;
 				overflow-y: hidden;
@@ -33,8 +36,36 @@ Polymer-based web component for standard menu items.
 				margin-top: 0.1rem;
 			}
 
+			:host > .main {
+				display: flex;
+				align-items: center;
+				overflow: hidden;
+			}
+
+			:host > .main > d2l-icon {
+				padding-right: 10px;
+				flex-shrink: 0;
+			}
+
+			:host(:hover) .main > d2l-icon,
+			:host(:focus) .main > d2l-icon {
+				color: var(--d2l-color-celestine);
+			}
+
+			:host-context([dir="rtl"]) .main > d2l-icon {
+				padding-right: 0;
+				padding-left: 10px;
+			}
+
+			:host > .main > d2l-icon:not([icon]) {
+				display: none;
+			}
+
 		</style>
-		<span>[[text]]</span>
+		<div class="main">
+			<d2l-icon icon$=[[icon]] class="side-icon"></d2l-icon>
+			<span>[[text]]</span>
+		</div>
 		<slot></slot>
 	</template>
 
@@ -42,12 +73,21 @@ Polymer-based web component for standard menu items.
 		Polymer({
 			is: 'd2l-menu-item',
 
+			properties: {
+
+				/**
+				 * Icon to appear beside text
+				 */
+				icon: String
+
+			},
+
 			behaviors: [
 				D2L.PolymerBehaviors.MenuItemBehavior
 			],
 
 			_initialize: function() {
-				if (this.hasChildView && !this.$$('d2l-icon')) {
+				if (this.hasChildView && !this.$$('d2l-icon:not(.side-icon)')) {
 					var icon = document.createElement('d2l-icon');
 					Polymer.dom(icon).setAttribute('icon', 'd2l-tier1:chevron-right');
 					Polymer.dom(this.root).insertBefore(
