@@ -11,7 +11,7 @@
 		<link rel="import" href="../d2l-menu-item-radio.html">
 	</head>
 	<body>
-		<test-fixture id="menu">
+		<test-fixture id="basic">
 			<template>
 				<d2l-menu id="menu">
 					<d2l-menu-item-radio id="radio1" value="1"></d2l-menu-item-radio>
@@ -26,7 +26,7 @@
 			var menu, radio;
 
 			beforeEach(function(done) {
-				menu = fixture('menu');
+				menu = fixture('basic');
 				radio = menu.querySelector('#radio1');
 				Polymer.RenderStatus.afterNextRender(menu, done);
 			});
