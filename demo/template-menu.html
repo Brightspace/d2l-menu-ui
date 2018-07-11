@@ -49,7 +49,6 @@
 
 		</div>
 		<script>
-
 			var menuItems = [
 				{text: 'Introduction'},
 				{text: 'Searching the Heavens'},
@@ -64,7 +63,7 @@
 				{text: 'The Universe'}
 			];
 
-			window.addEventListener('WebComponentsReady', function(e) {
+			window.addEventListener('WebComponentsReady', function() {
 				var menu;
 				if (Polymer.Element) {
 					menu = document.getElementById('repeat_template_v2');
@@ -73,9 +72,9 @@
 				}
 				menu.items = menuItems;
 
+				// eslint-disable-next-line no-console
 				console.log('menuItems (json)', menuItems);
 			});
-
 		</script>
 	</body>
 </html>

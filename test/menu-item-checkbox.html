@@ -11,8 +11,7 @@
 		<link rel="import" href="../d2l-menu-item-checkbox.html">
 	</head>
 	<body>
-
-		<test-fixture id="menu">
+		<test-fixture id="basic">
 			<template>
 				<d2l-menu id="menu">
 					<d2l-menu-item-checkbox id="check1" value="1"></d2l-menu-item-checkbox>
@@ -21,26 +20,24 @@
 				</d2l-menu>
 			</template>
 		</test-fixture>
-
 		<script>
-
-		describe('<d2l-menu-item-checkbox>', function () {
+		describe('<d2l-menu-item-checkbox>', function() {
 
 			var menu, checkbox;
 
-			beforeEach(function (done) {
-				menu = fixture('menu');
+			beforeEach(function(done) {
+				menu = fixture('basic');
 				checkbox = menu.querySelector('#check1');
 				Polymer.RenderStatus.afterNextRender(menu, done);
 			});
 
-			it('has role="menuitemcheckbox"', function () {
+			it('has role="menuitemcheckbox"', function() {
 				expect(checkbox.getAttribute('role')).to.equal('menuitemcheckbox');
 			});
 
-			it('swallows the "select" event', function (done) {
+			it('swallows the "select" event', function(done) {
 				var fired = false;
-				menu.addEventListener('d2l-menu-item-select', function(e) {
+				menu.addEventListener('d2l-menu-item-select', function() {
 					fired = true;
 				});
 				setTimeout(function() {
@@ -50,7 +47,7 @@
 				checkbox.click();
 			});
 
-			it('fires d2l-menu-item-change event when item is clicked', function (done) {
+			it('fires d2l-menu-item-change event when item is clicked', function(done) {
 				checkbox.addEventListener('d2l-menu-item-change', function(e) {
 					expect(e.detail.value).to.equal('1');
 					expect(e.detail.selected).to.be.true;
@@ -60,14 +57,14 @@
 			});
 
 			it('fires d2l-menu-item-change event when enter key pressed on item', function(done) {
-				checkbox.addEventListener('d2l-menu-item-change', function(e) {
+				checkbox.addEventListener('d2l-menu-item-change', function() {
 					done();
 				});
 				MockInteractions.keyDownOn(checkbox, 13);
 			});
 
 			it('fires d2l-menu-item-change event when space key pressed on item', function(done) {
-				checkbox.addEventListener('d2l-menu-item-change', function(e) {
+				checkbox.addEventListener('d2l-menu-item-change', function() {
 					done();
 				});
 				MockInteractions.keyDownOn(checkbox, 32);
@@ -76,7 +73,7 @@
 			it('does not fire d2l-menu-item-change event for disabled item', function(done) {
 				checkbox = menu.querySelector('#check3');
 				var fired = false;
-				checkbox.addEventListener('d2l-menu-item-change', function(e) {
+				checkbox.addEventListener('d2l-menu-item-change', function() {
 					fired = true;
 				});
 				setTimeout(function() {
@@ -86,7 +83,7 @@
 				MockInteractions.keyDownOn(checkbox, 13);
 			});
 
-			it('should toggle state on selection', function (done) {
+			it('should toggle state on selection', function(done) {
 				var expected = true;
 				checkbox.addEventListener('d2l-menu-item-change', function(e) {
 					expect(checkbox.selected).to.equal(expected);
@@ -101,8 +98,8 @@
 				checkbox.click();
 			});
 
-			it('does not affect other checkboxes in the menu when selected', function (done) {
-				checkbox.addEventListener('d2l-menu-item-change', function(e) {
+			it('does not affect other checkboxes in the menu when selected', function(done) {
+				checkbox.addEventListener('d2l-menu-item-change', function() {
 					expect(checkbox.selected).to.be.true;
 					expect(menu.querySelector('#check2').selected).not.to.be.true;
 					done();
