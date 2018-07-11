@@ -17,7 +17,7 @@
   "dependencies": {
     "d2l-colors": "^3.1.2",
     "d2l-hierarchical-view": "^1.0.2",
-    "d2l-icons": "^4.5.1",
+    "d2l-icons": "^5.0.0",
     "d2l-localize-behavior": "^1.0.0",
     "polymer": "1.9 - 2"
   },
