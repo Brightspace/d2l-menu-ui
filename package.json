@@ -4,10 +4,12 @@
   "description": "Polymer-based web component for a D2L menu",
   "scripts": {
     "postinstall": "polymer install --variants",
-    "test": "npm run test:lint:js && npm run test:lint:wc",
-    "test:lint:js": "eslint *.html",
-    "test:lint:wc": "polymer lint -i *.html",
-    "test:unit:local": "polymer test --skip-plugin sauce"
+    "test": "npm run lint && npm run test:polymer:local",
+    "lint": "npm run lint:wc && npm run lint:html",
+    "lint:html": "eslint *.html demo/*.html test/*.html",
+    "lint:wc": "polymer lint -i *.html",
+    "test:polymer:local": "polymer test --skip-plugin sauce",
+    "test:polymer:sauce": "polymer test --skip-plugin local"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,6 @@
     "eslint": "^4.15.0",
     "eslint-config-brightspace": "^0.4.0",
     "eslint-plugin-html": "^4.0.1",
-    "polymer-cli": "^1.5.7"
+    "polymer-cli": "^1.7.7"
   }
 }
