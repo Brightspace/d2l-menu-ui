@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="d2l-menu-item-selectable-styles.html">
-<link rel="import" href="d2l-menu-item-selectable-behavior.html">
+<link rel="import" href="d2l-menu-item-radio-behavior.html">
 
 <!--
 `d2l-menu-item-radio`
@@ -28,38 +28,8 @@ Polymer-based web component for radio menu items.
 			is: 'd2l-menu-item-radio',
 
 			behaviors: [
-				D2L.PolymerBehaviors.MenuItemSelectableBehavior
+				D2L.PolymerBehaviors.MenuItemRadioBehavior
 			],
-
-			hostAttributes: {
-				'role': 'menuitemradio'
-			},
-
-			attached: function() {
-				Polymer.RenderStatus.afterNextRender(this, function() {
-					this.listen(this, 'd2l-menu-item-change', '_onChange');
-					this.listen(this, 'd2l-menu-item-select', '_onSelect');
-				}.bind(this));
-			},
-
-			detached: function() {
-				this.unlisten(this, 'd2l-menu-item-change', '_onChange');
-				this.unlisten(this, 'd2l-menu-item-select', '_onSelect');
-			},
-
-			_onSelect: function(e) {
-				this.set('selected', true);
-				this.__onSelect(e);
-			},
-
-			_onChange: function(e) {
-				var items = this.parentNode.querySelectorAll('[role="menuitemradio"]');
-
-				for (var i = 0; i < items.length; i++) {
-					items[i].set('selected', items[i].value === e.detail.value);
-				}
-			}
-
 		});
 	</script>
 </dom-module>
