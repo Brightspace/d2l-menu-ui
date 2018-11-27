@@ -165,14 +165,15 @@ Polymer-based web component for menus.
 				} else if (this.childView && !returnItem) {
 
 					var items = this.$$('.d2l-menu-items');
-					Polymer.dom(items).insertBefore(
-						this._createReturnItem(),
-						Polymer.dom(items).childNodes[0]
-					);
+					requestAnimationFrame(function() {
+						Polymer.dom(items).insertBefore(
+							this._createReturnItem(),
+							Polymer.dom(items).childNodes[0]
+						);
+						this._onMenuItemsChanged();
+					}.bind(this));
 
 				}
-
-				this._onMenuItemsChanged();
 
 			},
 
