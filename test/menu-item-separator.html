@@ -4,9 +4,10 @@
 		<meta charset="UTF-8">
 		<title>d2l-menu-item-separator tests</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<script src="../../web-component-tester/browser.js"></script>
-		<link rel="import" href="../d2l-menu.html">
+		<script src="../../@babel/polyfill/browser.js"></script>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script type="module" src="../d2l-menu.js"></script>
 	</head>
 	<body>
 		<test-fixture id="separator">
@@ -14,20 +15,21 @@
 				<d2l-menu-item-separator></d2l-menu-item-separator>
 			</template>
 		</test-fixture>
-		<script>
-			describe('<d2l-menu-item-separator>', function() {
+		<script type="module">
+import '../d2l-menu.js';
+describe('<d2l-menu-item-separator>', function() {
 
-				var separator;
+	var separator;
 
-				beforeEach(function() {
-					separator = fixture('separator');
-				});
+	beforeEach(function() {
+		separator = fixture('separator');
+	});
 
-				it('has role="separator"', function() {
-					expect(separator.getAttribute('role')).to.equal('separator');
-				});
+	it('has role="separator"', function() {
+		expect(separator.getAttribute('role')).to.equal('separator');
+	});
 
-			});
-		</script>
+});
+</script>
 	</body>
 </html>

@@ -1,12 +1,14 @@
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../../d2l-hierarchical-view/d2l-hierarchical-view-behavior.html">
-<link rel="import" href="../d2l-menu-item-styles.html">
-<link rel="import" href="../d2l-menu-item-behavior.html">
-<link rel="import" href="../d2l-menu-item.html">
-<link rel="import" href="../d2l-menu.html">
+import '../../@polymer/polymer/polymer-legacy.js';
+import '../../d2l-hierarchical-view/d2l-hierarchical-view-behavior.js';
+import '../d2l-menu-item-styles.js';
+import '../d2l-menu-item-behavior.js';
+import '../d2l-menu-item.js';
+import '../d2l-menu.js';
+import { Polymer } from '../../@polymer/polymer/lib/legacy/polymer-fn.js';
+const $_documentContainer = document.createElement('template');
 
-<dom-module id="d2l-custom-menu-item">
-	<template strip-whitespace>
+$_documentContainer.innerHTML = `<dom-module id="d2l-custom-menu-item">
+	<template strip-whitespace="">
 		<style include="d2l-menu-item-styles">
 			:host {
 				display: block;
@@ -29,18 +31,9 @@
 		<span>[[text]]</span>
 		<slot></slot>
 	</template>
-	<script>
-		Polymer({
-			is: 'd2l-custom-menu-item',
-			behaviors: [
-				D2L.PolymerBehaviors.MenuItemBehavior
-			]
-		});
-	</script>
-</dom-module>
-
-<dom-module id="d2l-custom-view">
-	<template strip-whitespace>
+	
+</dom-module><dom-module id="d2l-custom-view">
+	<template strip-whitespace="">
 		<style include="d2l-hierarchical-view-styles">
 			:host {
 				background-image: url("https://www.nasa.gov/sites/default/files/images/504349main_ngc6357_hst_big_full.jpg");
@@ -70,31 +63,38 @@
 			</div>
 		</div>
 	</template>
-	<script>
-		Polymer({
-			is: 'd2l-custom-view',
+	
+</dom-module>`;
 
-			listeners: {
-				'd2l-hierarchical-view-show-complete': '_onShowComplete'
-			},
+document.head.appendChild($_documentContainer.content);
+Polymer({
+	is: 'd2l-custom-menu-item',
+	behaviors: [
+		D2L.PolymerBehaviors.MenuItemBehavior
+	]
+});
+Polymer({
+	is: 'd2l-custom-view',
 
-			behaviors: [
-				D2L.PolymerBehaviors.HierarchicalViewBehavior
-			],
+	listeners: {
+		'd2l-hierarchical-view-show-complete': '_onShowComplete'
+	},
 
-			focus: function() {
-				this.$$('.back-container > a').focus();
-			},
+	behaviors: [
+		D2L.PolymerBehaviors.HierarchicalViewBehavior
+	],
 
-			_onShowComplete: function() {
-				this.focus();
-			},
+	focus: function() {
+		this.$$('.back-container > a').focus();
+	},
 
-			_handleHide: function(e) {
-				e.stopPropagation();
-				this.hide();
-			}
+	_onShowComplete: function() {
+		this.focus();
+	},
 
-		});
-	</script>
-</dom-module>
+	_handleHide: function(e) {
+		e.stopPropagation();
+		this.hide();
+	}
+
+});

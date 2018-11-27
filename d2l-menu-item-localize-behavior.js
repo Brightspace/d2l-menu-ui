@@ -1,0 +1,73 @@
+import '../d2l-localize-behavior/d2l-localize-behavior.js';
+
+window.D2L = window.D2L || {};
+window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+
+/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
+D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl = {
+	properties: {
+		/**
+		 * Localization resources.
+		 */
+		resources: {
+			value: function() {
+				return {
+					'ar': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'en': {
+						'return': 'Returns to previous menu.',
+						'returnCurrentlyShowing': 'Returns to previous menu.  You are viewing {menuTitle}.'
+					},
+					'es': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'fi': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'fr': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'ja': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'ko': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'pt': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'sv': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'tr': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'zh': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					},
+					'zh-tw': {
+						'return': '',
+						'returnCurrentlyShowing': '{menuTitle}'
+					}
+				};
+			}
+		}
+	}
+};
+
+/** @polymerBehavior D2L.PolymerBehaviors.MenuItemLocalizeBehavior */
+D2L.PolymerBehaviors.MenuItemLocalizeBehavior = [
+	D2L.PolymerBehaviors.LocalizeBehavior,
+	D2L.PolymerBehaviors.MenuItemLocalizeBehaviorImpl
+];

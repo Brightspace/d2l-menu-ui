@@ -1,8 +1,9 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../d2l-colors/d2l-colors.html">
-<link rel="import" href="d2l-menu-item-styles.html">
+import '../@polymer/polymer/polymer-legacy.js';
+import '../d2l-colors/d2l-colors.js';
+import './d2l-menu-item-styles.js';
+const $_documentContainer = document.createElement('template');
 
-<dom-module id="d2l-menu-item-selectable-styles">
+$_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-selectable-styles">
 	<template>
 		<style include="d2l-menu-item-styles">
 			:host {
@@ -49,4 +50,6 @@
 			}
 		</style>
 	</template>
-</dom-module>
+</dom-module>`;
+
+document.head.appendChild($_documentContainer.content);
