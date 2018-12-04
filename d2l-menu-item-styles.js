@@ -1,5 +1,5 @@
-import '../@polymer/polymer/polymer-legacy.js';
-import '../d2l-colors/d2l-colors.js';
+import '@polymer/polymer/polymer-legacy.js';
+import 'd2l-colors/d2l-colors.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-styles">

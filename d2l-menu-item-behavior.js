@@ -1,6 +1,6 @@
-import '../@polymer/polymer/polymer-legacy.js';
-import { afterNextRender } from '../@polymer/polymer/lib/utils/render-status.js';
-import { dom } from '../@polymer/polymer/lib/legacy/polymer.dom.js';
+import '@polymer/polymer/polymer-legacy.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 
 window.D2L = window.D2L || {};
 window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};

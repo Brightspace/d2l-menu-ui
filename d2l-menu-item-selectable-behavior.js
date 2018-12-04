@@ -1,4 +1,4 @@
-import '../@polymer/polymer/polymer-legacy.js';
+import '@polymer/polymer/polymer-legacy.js';
 import './d2l-menu-item-behavior.js';
 
 window.D2L = window.D2L || {};

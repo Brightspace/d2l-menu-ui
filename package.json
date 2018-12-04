@@ -40,8 +40,8 @@
   "dependencies": {
     "d2l-colors": "BrightspaceUI/colors#semver:^4.0.0",
     "d2l-hierarchical-view": "BrightspaceUI/hierarchical-view#semver:^2.0.0",
-    "d2l-icons": "BrightspaceUI/icons#semver:^6.0.0",
-    "d2l-localize-behavior": "BrightspaceUI/localize-behavior#semver:^2.0.0",
+    "d2l-icons": "BrightspaceUI/icons#semver:^6.0.1",
+    "d2l-localize-behavior": "BrightspaceUI/localize-behavior#semver:^2.0.1",
     "@polymer/polymer": "^3.0.0"
   }
 }
