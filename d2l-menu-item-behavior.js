@@ -1,6 +1,6 @@
-import '../@polymer/polymer/polymer-legacy.js';
-import { afterNextRender } from '../@polymer/polymer/lib/utils/render-status.js';
-import { dom } from '../@polymer/polymer/lib/legacy/polymer.dom.js';
+import '@polymer/polymer/polymer-legacy.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 
 window.D2L = window.D2L || {};
 window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
@@ -96,7 +96,7 @@ D2L.PolymerBehaviors.MenuItemBehavior = {
 		}
 
 		for (var i = 0; i < children.length; i++) {
-			if (children[i].tagName !== 'TEMPLATE') {
+			if (children[i].tagName !== 'TEMPLATE' && children[i].tagName !== 'DOM-IF') {
 				this.hasChildView = true;
 				this.__children = children;
 				this.setAttribute('aria-haspopup', true);
