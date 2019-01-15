@@ -158,13 +158,14 @@ Polymer-based web component for menus.
 				this.active = this.getActiveView() === this;
 
 				var returnItem = this.$$('d2l-menu-item-return');
+				var items = this.$$('.d2l-menu-items');
 				if (!this.childView && returnItem) {
 
-					Polymer.dom(this.root).removeChild(returnItem);
+					Polymer.dom(items).removeChild(returnItem);
+					this._onMenuItemsChanged();
 
 				} else if (this.childView && !returnItem) {
 
-					var items = this.$$('.d2l-menu-items');
 					requestAnimationFrame(function() {
 						Polymer.dom(items).insertBefore(
 							this._createReturnItem(),
