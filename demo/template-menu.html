@@ -87,6 +87,7 @@ import 'd2l-typography/d2l-typography.js';
 import '../d2l-menu.js';
 import '../d2l-menu-item-link.js';
 import './demo-components.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 var menuItems = [
 	{text: 'Introduction'},
 	{text: 'Searching the Heavens'},
@@ -101,9 +102,13 @@ var menuItems = [
 	{text: 'The Universe'}
 ];
 
-requestAnimationFrame(function() {
-	document.getElementById('repeat_template_v2').items = menuItems;
-});
+var menu;
+if (PolymerElement) {
+	menu = document.getElementById('repeat_template_v2');
+} else {
+	menu = document.getElementById('repeat_template_v1');
+}
+menu.items = menuItems;
 
 // eslint-disable-next-line no-console
 console.log('menuItems (json)', menuItems);
