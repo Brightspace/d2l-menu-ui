@@ -170,13 +170,14 @@ Polymer({
 		this.active = this.getActiveView() === this;
 
 		var returnItem = this.$$('d2l-menu-item-return');
+		var items = this.$$('.d2l-menu-items');
 		if (!this.childView && returnItem) {
 
-			dom(this.root).removeChild(returnItem);
+			dom(items).removeChild(returnItem);
+			this._onMenuItemsChanged();
 
 		} else if (this.childView && !returnItem) {
 
-			var items = this.$$('.d2l-menu-items');
 			requestAnimationFrame(function() {
 				dom(items).insertBefore(
 					this._createReturnItem(),
