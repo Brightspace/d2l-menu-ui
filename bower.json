@@ -16,9 +16,10 @@
   ],
   "dependencies": {
     "d2l-colors": "^3.1.2",
-    "d2l-hierarchical-view": "^1.0.2",
+    "d2l-hierarchical-view": "^1.0.5",
     "d2l-icons": "^5.0.0",
     "d2l-localize-behavior": "^1.0.0",
+    "d2l-polymer-behaviors": "^1.9.1",
     "polymer": "1 - 2"
   },
   "devDependencies": {

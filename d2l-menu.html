@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="../d2l-hierarchical-view/d2l-hierarchical-view-behavior.html">
+<link rel="import" href="../d2l-polymer-behaviors/requestIdleCallback.html">
 <link rel="import" href="d2l-menu-item.html">
 <link rel="import" href="d2l-menu-item-return.html">
 <link rel="import" href="d2l-menu-item-separator.html">
@@ -155,26 +156,30 @@ Polymer-based web component for menus.
 					return;
 				}
 
-				this.active = this.getActiveView() === this;
+				requestIdleCallback(function() {
 
-				var returnItem = this.$$('d2l-menu-item-return');
-				var items = this.$$('.d2l-menu-items');
-				if (!this.childView && returnItem) {
+					this.active = this.getActiveView() === this;
 
-					Polymer.dom(items).removeChild(returnItem);
-					this._onMenuItemsChanged();
+					var returnItem = this.$$('d2l-menu-item-return');
+					var items = this.$$('.d2l-menu-items');
+					if (!this.childView && returnItem) {
 
-				} else if (this.childView && !returnItem) {
-
-					requestAnimationFrame(function() {
-						Polymer.dom(items).insertBefore(
-							this._createReturnItem(),
-							Polymer.dom(items).childNodes[0]
-						);
+						Polymer.dom(items).removeChild(returnItem);
 						this._onMenuItemsChanged();
-					}.bind(this));
 
-				}
+					} else if (this.childView && !returnItem) {
+
+						requestAnimationFrame(function() {
+							Polymer.dom(items).insertBefore(
+								this._createReturnItem(),
+								Polymer.dom(items).childNodes[0]
+							);
+							this._onMenuItemsChanged();
+						}.bind(this));
+
+					}
+
+				}.bind(this));
 
 			},
 
