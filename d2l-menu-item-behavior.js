@@ -96,7 +96,7 @@ D2L.PolymerBehaviors.MenuItemBehavior = {
 		}
 
 		for (var i = 0; i < children.length; i++) {
-			if (children[i].tagName !== 'TEMPLATE' && children[i].tagName !== 'DOM-IF') {
+			if (children[i].tagName !== 'TEMPLATE') {
 				this.hasChildView = true;
 				this.__children = children;
 				this.setAttribute('aria-haspopup', true);

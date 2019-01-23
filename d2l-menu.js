@@ -13,6 +13,7 @@ import '@polymer/polymer/polymer-legacy.js';
 
 import 'd2l-colors/d2l-colors.js';
 import 'd2l-hierarchical-view/d2l-hierarchical-view-behavior.js';
+import 'd2l-polymer-behaviors/requestIdleCallback.js';
 import './d2l-menu-item.js';
 import './d2l-menu-item-return.js';
 import './d2l-menu-item-separator.js';
@@ -167,26 +168,30 @@ Polymer({
 			return;
 		}
 
-		this.active = this.getActiveView() === this;
+		requestIdleCallback(function() {
 
-		var returnItem = this.$$('d2l-menu-item-return');
-		var items = this.$$('.d2l-menu-items');
-		if (!this.childView && returnItem) {
+			this.active = this.getActiveView() === this;
 
-			dom(items).removeChild(returnItem);
-			this._onMenuItemsChanged();
+			var returnItem = this.$$('d2l-menu-item-return');
+			var items = this.$$('.d2l-menu-items');
+			if (!this.childView && returnItem) {
 
-		} else if (this.childView && !returnItem) {
-
-			requestAnimationFrame(function() {
-				dom(items).insertBefore(
-					this._createReturnItem(),
-					dom(items).childNodes[0]
-				);
+				dom(items).removeChild(returnItem);
 				this._onMenuItemsChanged();
-			}.bind(this));
 
-		}
+			} else if (this.childView && !returnItem) {
+
+				requestAnimationFrame(function() {
+					dom(items).insertBefore(
+						this._createReturnItem(),
+						dom(items).childNodes[0]
+					);
+					this._onMenuItemsChanged();
+				}.bind(this));
+
+			}
+
+		}.bind(this));
 
 	},
 
