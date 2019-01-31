@@ -29,6 +29,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 			:host {
 				box-sizing: border-box;
 				display: block;
+				min-width: 180px;
 				width: 100%;
 				padding-top: 1px;
 			}

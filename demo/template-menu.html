@@ -21,32 +21,40 @@
 		-->
 	<script type="module">
 const $_documentContainer = document.createElement('template');
+
 $_documentContainer.innerHTML = `<custom-style>
 			<style is="custom-style" include="demo-pages-shared-styles"></style>
 		</custom-style>`;
+
 document.body.appendChild($_documentContainer.content);
 </script>
 		<script type="module">
 const $_documentContainer = document.createElement('template');
+
 $_documentContainer.innerHTML = `<custom-style include="d2l-typography">
 			<style is="custom-style" include="d2l-typography"></style>
 		</custom-style>`;
+
 document.body.appendChild($_documentContainer.content);
 </script>
 		<script type="module">
 const $_documentContainer = document.createElement('template');
+
 $_documentContainer.innerHTML = `<style>
 			html {
 				font-size: 20px;
 			}
 			</style>`;
+
 document.body.appendChild($_documentContainer.content);
 </script>
 	</head>
 	<body unresolved class="d2l-typography">
 		<script type="module">
 const $_documentContainer = document.createElement('template');
+
 $_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+
 			<h3>Template-Based Menu</h3>
 			<demo-snippet>
 				<template>
@@ -67,7 +75,9 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 					</d2l-menu>
 				</template>
 			</demo-snippet>
+
 		</div>`;
+
 document.body.appendChild($_documentContainer.content);
 </script>
 		<script type="module">
@@ -77,6 +87,7 @@ import 'd2l-typography/d2l-typography.js';
 import '../d2l-menu.js';
 import '../d2l-menu-item-link.js';
 import './demo-components.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 var menuItems = [
 	{text: 'Introduction'},
 	{text: 'Searching the Heavens'},
@@ -90,9 +101,15 @@ var menuItems = [
 	{text: 'The Night Sky'},
 	{text: 'The Universe'}
 ];
-requestAnimationFrame(function() {
-	document.getElementById('repeat_template_v2').items = menuItems;
-});
+
+var menu;
+if (PolymerElement) {
+	menu = document.getElementById('repeat_template_v2');
+} else {
+	menu = document.getElementById('repeat_template_v1');
+}
+menu.items = menuItems;
+
 // eslint-disable-next-line no-console
 console.log('menuItems (json)', menuItems);
 </script>
