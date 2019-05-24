@@ -26,7 +26,7 @@
     "eslint-config-brightspace": "^0.4.0",
     "eslint-plugin-html": "^4.0.1",
     "frau-ci": "^1.33.2",
-    "polymer-cli": "^1.9.5",
+    "polymer-cli": "^1.9.9",
     "wct-browser-legacy": "^1.0.1"
   },
   "version": "2.3.0",

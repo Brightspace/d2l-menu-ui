@@ -72,8 +72,8 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:hover) {
 				z-index: 2;
 				background-color: var(--d2l-color-celestine-plus-2);
-				border-top: 1px solid var(--d2l-color-celestine-plus-1);
-				border-bottom: 1px solid var(--d2l-color-celestine-plus-1);
+				border-top: 1px solid var(--d2l-color-celestine);
+				border-bottom: 1px solid var(--d2l-color-celestine);
 				color: var(--d2l-color-celestine);
 			}
 			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
@@ -82,7 +82,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:hover),
 			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:focus),
 			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:hover) {
-				border-bottom-color: var(--d2l-color-celestine-plus-1);
+				border-bottom-color: var(--d2l-color-celestine);
 			}
 			.d2l-menu-items ::slotted(d2l-menu-item-separator) {
 				position: relative;
@@ -96,7 +96,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 		</div>
 	</template>
 
-	
+
 
 </dom-module>`;
 
