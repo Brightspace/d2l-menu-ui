@@ -74,7 +74,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 				background-color: var(--d2l-color-celestine-plus-2);
 				border-top: 1px solid var(--d2l-color-celestine);
 				border-bottom: 1px solid var(--d2l-color-celestine);
-				color: var(--d2l-color-celestine);
+				color: var(--d2l-color-celestine-minus-1);
 			}
 			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
 			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:hover),

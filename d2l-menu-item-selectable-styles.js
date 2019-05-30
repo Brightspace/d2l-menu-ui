@@ -26,7 +26,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-selectable-styles
 			:host(:focus),
 			:host(:hover) > d2l-icon,
 			:host(:focus) > d2l-icon {
-				color: var(--d2l-color-celestine);
+				color: var(--d2l-color-celestine-minus-1);
 			}
 
 			:host > d2l-icon {
