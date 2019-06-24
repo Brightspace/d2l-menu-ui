@@ -90,6 +90,45 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 				margin-top: -1px;
 				border-top: 1px solid var(--d2l-color-corundum);
 			}
+			@media (prefers-color-scheme: dark) {
+				.d2l-menu-items d2l-menu-item-return[role="menuitem"],
+				.d2l-menu-items ::slotted([role="menuitem"]),
+				.d2l-menu-items ::slotted([role="menuitemcheckbox"]),
+				.d2l-menu-items ::slotted([role="menuitemradio"]) {
+					color: var(--d2l-color-regolith);
+					border-top-color: var(--d2l-color-dark-mode-3);
+				}
+				.d2l-menu-items d2l-menu-item-return[role="menuitem"]:focus,
+				.d2l-menu-items d2l-menu-item-return[role="menuitem"]:hover,
+				.d2l-menu-items ::slotted([role="menuitem"]:focus),
+				.d2l-menu-items ::slotted([role="menuitem"]:hover),
+				.d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus),
+				.d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover),
+				.d2l-menu-items ::slotted([role="menuitemradio"]:focus),
+				.d2l-menu-items ::slotted([role="menuitemradio"]:hover),
+				.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:focus),
+				.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:hover),
+				.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:focus),
+				.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:hover),
+				.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:focus),
+				.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:hover) {
+					background-color: var(--d2l-color-dark-mode-2);
+					border-top: 1px solid var(--d2l-color-celestine-plus-1);
+					border-bottom: 1px solid var(--d2l-color-celestine-plus-1);
+					color: var(--d2l-color-celestine-plus-1);
+				}
+				.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
+				.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:hover),
+				.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:focus),
+				.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:hover),
+				.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:focus),
+				.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:hover) {
+					border-bottom-color: var(--d2l-color-celestine-plus-1);
+				}
+				.d2l-menu-items ::slotted(d2l-menu-item-separator) {
+					border-top: 1px solid var(--d2l-color-dark-mode-4);
+				}
+			}
 		</style>
 		<div class="d2l-menu-items d2l-hierarchical-view-content">
 			<slot></slot>

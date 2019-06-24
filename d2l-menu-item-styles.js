@@ -16,6 +16,12 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-styles">
 				width: 100%;
 			}
 
+			@media (prefers-color-scheme: dark) {
+				:host {
+					background-color: var(--d2l-color-dark-mode-2);
+				}
+			}
+
 			:host([disabled]), :host([disabled]:hover), :host([disabled]:focus) {
 				cursor: default;
 				opacity: 0.75;
