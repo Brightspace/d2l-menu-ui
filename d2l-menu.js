@@ -91,41 +91,41 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 				border-top: 1px solid var(--d2l-color-corundum);
 			}
 
-			:host-context(.d2l-dark-mode) .d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitem"]),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitemcheckbox"]),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitemradio"]) {
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items d2l-menu-item-return[role="menuitem"],
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitem"]),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitemcheckbox"]),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitemradio"]) {
 				color: var(--d2l-color-regolith);
 				border-top-color: var(--d2l-color-dark-mode-3);
 			}
-			:host-context(.d2l-dark-mode) .d2l-menu-items d2l-menu-item-return[role="menuitem"]:focus,
-			:host-context(.d2l-dark-mode) .d2l-menu-items d2l-menu-item-return[role="menuitem"]:hover,
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitem"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitem"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitemradio"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted([role="menuitemradio"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:hover) {
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items d2l-menu-item-return[role="menuitem"]:focus,
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items d2l-menu-item-return[role="menuitem"]:hover,
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitem"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitem"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitemradio"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted([role="menuitemradio"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:hover) {
 				background-color: var(--d2l-color-dark-mode-2);
 				border-top: 1px solid var(--d2l-color-celestine-plus-1);
 				border-bottom: 1px solid var(--d2l-color-celestine-plus-1);
 				color: var(--d2l-color-celestine-plus-1);
 			}
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:hover),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:focus),
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:hover) {
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:hover),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:focus),
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:hover) {
 				border-bottom-color: var(--d2l-color-celestine-plus-1);
 			}
-			:host-context(.d2l-dark-mode) .d2l-menu-items ::slotted(d2l-menu-item-separator) {
+			:host-context([d2l-color-scheme="dark"]) .d2l-menu-items ::slotted(d2l-menu-item-separator) {
 				border-top: 1px solid var(--d2l-color-dark-mode-4);
 			}
 		</style>

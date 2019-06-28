@@ -16,7 +16,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-styles">
 				width: 100%;
 			}
 
-			:host-context(.d2l-dark-mode) {
+			:host-context([d2l-color-scheme="dark"]) {
 				background-color: var(--d2l-color-dark-mode-2);
 			}
 
