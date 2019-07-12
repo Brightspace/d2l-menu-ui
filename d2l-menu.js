@@ -302,7 +302,9 @@ Polymer({
 	},
 
 	_labelChanged: function(newValue) {
-		this.setAttribute('aria-label', newValue);
+		if (newValue) {
+			this.setAttribute('aria-label', newValue);
+		}
 		var returnItem = this.$$('d2l-menu-item-return');
 		if (returnItem) {
 			dom(returnItem).setAttribute('text', newValue);
