@@ -11,7 +11,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-styles">
 				box-sizing: border-box;
 				cursor: pointer;
 				display: block;
-				font-size: 0.8rem;
+				font-size: 1.0rem;
 				outline: none;
 				width: 100%;
 			}
