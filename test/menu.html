@@ -131,7 +131,7 @@ describe('<d2l-menu>', function() {
 				done();
 			});
 			menu.addEventListener('d2l-hierarchical-view-show-complete', function() {
-				MockInteractions.keyDownOn(menu.querySelector('#a2'), 27);
+				MockInteractions.keyUpOn(menu.querySelector('#a2'), 27);
 			});
 			menu.querySelector('#b1').click();
 		});
