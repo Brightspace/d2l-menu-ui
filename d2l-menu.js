@@ -9,11 +9,11 @@ Polymer-based web component for menus.
   from HTML and may be out of place here. Review them and
   then delete this comment!
 */
+import '@brightspace-ui/core/helpers/requestIdleCallback.js';
 import '@polymer/polymer/polymer-legacy.js';
 
 import 'd2l-colors/d2l-colors.js';
 import 'd2l-hierarchical-view/d2l-hierarchical-view-behavior.js';
-import 'd2l-polymer-behaviors/requestIdleCallback.js';
 import './d2l-menu-item.js';
 import './d2l-menu-item-return.js';
 import './d2l-menu-item-separator.js';
