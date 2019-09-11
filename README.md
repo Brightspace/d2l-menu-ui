@@ -324,8 +324,8 @@ npm test
 
 [bower-url]: http://bower.io/search/?q=d2l-menu
 [bower-image]: https://badge.fury.io/bo/d2l-menu.svg
-[ci-url]: https://travis-ci.org/BrightspaceUI/menu
-[ci-image]: https://travis-ci.org/BrightspaceUI/menu.svg?branch=master
+[ci-url]: https://travis-ci.com/BrightspaceUI/menu
+[ci-image]: https://travis-ci.com/BrightspaceUI/menu.svg?branch=master
 
 ## Versioning & Releasing
 
