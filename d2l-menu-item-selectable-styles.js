@@ -15,11 +15,8 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-selectable-styles
 			:host > span {
 				flex: auto;
 				line-height: 1rem;
-				overflow-x: hidden;
 				overflow-y: hidden;
 				text-decoration: none;
-				text-overflow: ellipsis;
-				white-space: nowrap;
 			}
 
 			:host(:hover),
