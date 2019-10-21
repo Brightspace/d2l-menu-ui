@@ -45,6 +45,24 @@ D2L.PolymerBehaviors.MenuItemBehavior = {
 			type: Boolean,
 			observer: '_onHidden',
 			reflectToAttribute: true
+		},
+
+		/**
+		 * Whether the menu item is the first menu item in the menu
+		 * Set by d2l-menu
+		 */
+		first: {
+			type: Boolean,
+			reflectToAttribute: true
+		},
+
+		/**
+		 * Whether the menu item is the last menu item in the menu
+		 * Set by d2l-menu
+		 */
+		last: {
+			type: Boolean,
+			reflectToAttribute: true
 		}
 	},
 

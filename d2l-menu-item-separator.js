@@ -17,12 +17,16 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu-item-separator">
 	<template strip-whitespace="">
 		<style>
 			:host {
+				border-top: 1px solid var(--d2l-color-corundum);
 				display: block;
+				margin-top: -1px;
+				position: relative;
+				z-index: 1;
 			}
 		</style>
 	</template>
 
-	
+
 
 </dom-module>`;
 

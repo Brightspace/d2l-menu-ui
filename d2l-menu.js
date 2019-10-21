@@ -40,63 +40,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-menu">
 			:host([active]) .d2l-menu-items ::slotted([role="menuitemradio"]) {
 				position: relative;
 			}
-
-			.d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			.d2l-menu-items ::slotted([role="menuitem"]),
-			.d2l-menu-items ::slotted([role="menuitemcheckbox"]),
-			.d2l-menu-items ::slotted([role="menuitemradio"]) {
-				margin-top: -1px;
-				border: 1px solid transparent;
-				border-top-color: var(--d2l-color-gypsum);
-				color: var(--d2l-color-ferrite);
-			}
-			.d2l-menu-items d2l-menu-item-return[role="menuitem"],
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]) {
-				border-top-color: transparent;
-			}
-			.d2l-menu-items d2l-menu-item-return[role="menuitem"]:focus,
-			.d2l-menu-items d2l-menu-item-return[role="menuitem"]:hover,
-			.d2l-menu-items ::slotted([role="menuitem"]:focus),
-			.d2l-menu-items ::slotted([role="menuitem"]:hover),
-			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:focus),
-			.d2l-menu-items ::slotted([role="menuitemcheckbox"]:hover),
-			.d2l-menu-items ::slotted([role="menuitemradio"]:focus),
-			.d2l-menu-items ::slotted([role="menuitemradio"]:hover),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:focus),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitem"]:hover),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:focus),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemcheckbox"]:hover),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:focus),
-			.d2l-menu-items ::slotted(.d2l-menu-item-first[role="menuitemradio"]:hover) {
-				z-index: 2;
-				background-color: var(--d2l-color-celestine-plus-2);
-				border-top: 1px solid var(--d2l-color-celestine);
-				border-bottom: 1px solid var(--d2l-color-celestine);
-				color: var(--d2l-color-celestine-minus-1);
-			}
-			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:focus),
-			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitem"]:hover),
-			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:focus),
-			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemcheckbox"]:hover),
-			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:focus),
-			.d2l-menu-items ::slotted(.d2l-menu-item-last[role="menuitemradio"]:hover) {
-				border-bottom-color: var(--d2l-color-celestine);
-			}
-			.d2l-menu-items ::slotted(d2l-menu-item-separator) {
-				position: relative;
-				z-index: 1;
-				margin-top: -1px;
-				border-top: 1px solid var(--d2l-color-corundum);
-			}
 		</style>
 		<div class="d2l-menu-items d2l-hierarchical-view-content">
 			<slot></slot>
 		</div>
 	</template>
-
-
 
 </dom-module>`;
 
@@ -407,8 +355,8 @@ Polymer({
 
 		for (var i = 0; i < this._items.length; i++) {
 			var item = this._items[i];
-			dom(item).classList.remove('d2l-menu-item-first');
-			dom(item).classList.remove('d2l-menu-item-last');
+			dom(item).removeAttribute('first');
+			dom(item).removeAttribute('last');
 			if (!item.hidden) {
 				dom(item).setAttribute('tabindex', visibleItems.length === 0 ? 0 : -1);
 				visibleItems.push(item);
@@ -416,8 +364,8 @@ Polymer({
 		}
 
 		if (visibleItems.length > 0) {
-			dom(visibleItems[0]).classList.add('d2l-menu-item-first');
-			dom(visibleItems[visibleItems.length - 1]).classList.add('d2l-menu-item-last');
+			dom(visibleItems[0]).setAttribute('first', true);
+			dom(visibleItems[visibleItems.length - 1]).setAttribute('last', true);
 		}
 
 	},
