@@ -38,7 +38,7 @@
   },
   "main": "d2l-menu.js",
   "dependencies": {
-    "@brightspace-ui/core": "^1.28.3",
+    "@brightspace-ui/core": "BrightspaceUI/core#menu-tweaks",
     "@polymer/polymer": "^3.0.0",
     "d2l-colors": "BrightspaceUI/colors#semver:^4",
     "d2l-hierarchical-view": "BrightspaceUI/hierarchical-view#semver:^2",
