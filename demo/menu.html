@@ -3,63 +3,23 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
 		<title>d2l-menu demo</title>
-		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
-		<script type="module" src="../d2l-menu.js"></script>
-		<script type="module" src="../d2l-menu-item.js"></script>
-		<script type="module" src="../d2l-menu-item-link.js"></script>
-		<script type="module" src="../d2l-menu-item-separator.js"></script>
-		<script type="module" src="./custom-menu-item.js"></script>
-		<script type="module" src="./custom-view.js"></script>
-		<!-- FIXME(polymer-modulizer):
-		These imperative modules that innerHTML your HTML are
-		a hacky way to be sure that any mixins in included style
-		modules are ready before any elements that reference them are
-		instantiated, otherwise the CSS @apply mixin polyfill won't be
-		able to expand the underlying CSS custom properties.
-		See: https://github.com/Polymer/polymer-modulizer/issues/154
-		-->
-	<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style>
-			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
-			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<style>
-			html {
-				font-size: 20px;
-			}
-			</style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+			import '../d2l-menu.js';
+			import '../d2l-menu-item.js';
+			import '../d2l-menu-item-link.js';
+			import '../d2l-menu-item-separator.js';
+			import './custom-menu-item.js';
+			import './custom-view.js';
+		</script>
 	</head>
-	<body unresolved class="d2l-typography">
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
-
-			<h3>Simple Menu</h3>
-			<demo-snippet>
+	<body unresolved>
+		<d2l-demo-page page-title="d2l-menu (imported from core)">
+			<h2>Simple Menu</h2>
+			<d2l-demo-snippet>
 				<template>
 					<d2l-menu label="Astronomy" style="max-width:400px;">
 						<d2l-menu-item text="Introduction"></d2l-menu-item>
@@ -71,10 +31,10 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 						<d2l-menu-item text="The Universe"></d2l-menu-item>
 					</d2l-menu>
 				</template>
-			</demo-snippet>
+			</d2l-demo-snippet>
 
-			<h3>Custom View</h3>
-			<demo-snippet>
+			<h2>Custom View</h2>
+			<d2l-demo-snippet>
 				<template>
 					<d2l-menu label="Astronomy" style="max-width:400px;">
 						<d2l-menu-item text="Introduction"></d2l-menu-item>
@@ -87,10 +47,10 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 						<d2l-menu-item-link href="https://en.wikipedia.org/wiki/Universe" text="The Universe (link)"></d2l-menu-item-link>
 					</d2l-menu>
 				</template>
-			</demo-snippet>
+			</d2l-demo-snippet>
 
-			<h3>Nested Menu</h3>
-			<demo-snippet>
+			<h2>Nested Menu</h2>
+			<d2l-demo-snippet>
 				<template>
 					<d2l-menu label="Astronomy" style="max-width:400px;">
 						<d2l-menu-item text="Introduction"></d2l-menu-item>
@@ -160,22 +120,14 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 						<d2l-menu-item text="The Universe"></d2l-menu-item>
 					</d2l-menu>
 				</template>
-			</demo-snippet>
+			</d2l-demo-snippet>
+		</d2l-demo-page>
 
-		</div>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
-import 'd2l-typography/d2l-typography.js';
-import '../d2l-menu.js';
-import '../d2l-menu-item-link.js';
-document.body.addEventListener('d2l-menu-item-select', function(e) {
-	// eslint-disable-next-line no-console
-	console.log('item selected:', e.target);
-});
-</script>
+		<script>
+			document.body.addEventListener('d2l-menu-item-select', function(e) {
+				// eslint-disable-next-line no-console
+				console.log('item selected:', e.target);
+			});
+		</script>
 	</body>
 </html>

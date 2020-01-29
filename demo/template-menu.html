@@ -3,52 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
 		<title>d2l-menu (template based) demo</title>
-		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
-		<script type="module" src="../d2l-menu.js"></script>
-		<script type="module" src="../d2l-menu-item.js"></script>
-		<script type="module" src="../d2l-menu-item-link.js"></script>
-		<!-- FIXME(polymer-modulizer):
-		These imperative modules that innerHTML your HTML are
-		a hacky way to be sure that any mixins in included style
-		modules are ready before any elements that reference them are
-		instantiated, otherwise the CSS @apply mixin polyfill won't be
-		able to expand the underlying CSS custom properties.
-		See: https://github.com/Polymer/polymer-modulizer/issues/154
-		-->
-	<script type="module">
-const $_documentContainer = document.createElement('template');
-$_documentContainer.innerHTML = `<custom-style>
-			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>`;
-document.body.appendChild($_documentContainer.content);
-</script>
 		<script type="module">
-const $_documentContainer = document.createElement('template');
-$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
-			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>`;
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-$_documentContainer.innerHTML = `<style>
-			html {
-				font-size: 20px;
-			}
-			</style>`;
-document.body.appendChild($_documentContainer.content);
-</script>
+			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+			import '../d2l-menu.js';
+			import '../d2l-menu-item.js';
+		</script>
 	</head>
-	<body unresolved class="d2l-typography">
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+	<body unresolved>
+		<d2l-demo-page>
 			<h3>Template-Based Menu</h3>
-			<demo-snippet>
+			<d2l-demo-snippet>
 				<template>
 					<d2l-menu label="Astronomy" style="max-width: 400px;">
 						<dom-repeat id="repeat_template_v2">
@@ -66,34 +34,28 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 						</dom-repeat>
 					</d2l-menu>
 				</template>
-			</demo-snippet>
-		</div>`;
-document.body.appendChild($_documentContainer.content);
-</script>
+			</d2l-demo-snippet>
+		</d2l-demo-page>
+
 		<script type="module">
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
-import 'd2l-typography/d2l-typography.js';
-import '../d2l-menu.js';
-import '../d2l-menu-item-link.js';
-var menuItems = [
-	{text: 'Introduction'},
-	{text: 'Searching the Heavens'},
-	{text: 'The Solar System', menuItems: [
-		{text: 'Formation'},
-		{text: 'Modern Solar System'},
-		{text: 'Future Solar System'},
-		{text: 'The Planets'}
-	]},
-	{text: 'Stars & Galaxies'},
-	{text: 'The Night Sky'},
-	{text: 'The Universe'}
-];
-requestAnimationFrame(function() {
-	document.getElementById('repeat_template_v2').items = menuItems;
-});
-// eslint-disable-next-line no-console
-console.log('menuItems (json)', menuItems);
-</script>
+			const menuItems = [
+				{text: 'Introduction'},
+				{text: 'Searching the Heavens'},
+				{text: 'The Solar System', menuItems: [
+					{text: 'Formation'},
+					{text: 'Modern Solar System'},
+					{text: 'Future Solar System'},
+					{text: 'The Planets'}
+				]},
+				{text: 'Stars & Galaxies'},
+				{text: 'The Night Sky'},
+				{text: 'The Universe'}
+			];
+			requestAnimationFrame(function() {
+				document.getElementById('repeat_template_v2').items = menuItems;
+			});
+			// eslint-disable-next-line no-console
+			console.log('menuItems (json)', menuItems);
+		</script>
 	</body>
 </html>
