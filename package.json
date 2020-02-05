@@ -16,9 +16,6 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@polymer/iron-component-page": "^4.0.0",
-    "@polymer/iron-demo-helpers": "^3.0.0",
-    "@polymer/iron-test-helpers": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.2.5",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.15.0",
@@ -39,7 +36,6 @@
   "dependencies": {
     "@brightspace-ui/core": "^1.29.1",
     "@polymer/polymer": "^3.0.0",
-    "d2l-localize-behavior": "BrightspaceUI/localize-behavior#semver:^2",
     "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2"
   }
 }
