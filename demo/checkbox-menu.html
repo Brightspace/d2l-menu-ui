@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
-		<title>d2l-menu-item-checkbox demo</title>
 		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module">
 			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
@@ -22,14 +21,14 @@
 						<d2l-menu-item-checkbox text="Checkbox 2" value="2"></d2l-menu-item-checkbox>
 						<d2l-menu-item-checkbox text="Checkbox 3" value="3"></d2l-menu-item-checkbox>
 					</d2l-menu>
+					<script>
+						document.body.addEventListener('d2l-menu-item-change', function(e) {
+							// eslint-disable-next-line no-console
+							console.log('item selection changed:', e.target);
+						});
+					</script>
 				</template>
 			</d2l-demo-snippet>
 		</d2l-demo-page>
-		<script>
-			document.body.addEventListener('d2l-menu-item-change', function(e) {
-				// eslint-disable-next-line no-console
-				console.log('item selection changed:', e.target);
-			});
-		</script>
 	</body>
 </html>
