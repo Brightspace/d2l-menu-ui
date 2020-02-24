@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>MenuItemSelectableBehavior tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script type="module" src="./test-menu-item-selectable.js"></script>
+	</head>
+	<body>
+		<test-fixture id="basic">
+			<template>
+				<d2l-test-menu-item-selectable></d2l-test-menu-item-selectable>
+			</template>
+		</test-fixture>
+		<script type="module">
+			import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+			describe('MenuItemSelectableBehavior', function() {
+
+				let item;
+
+				beforeEach(function(done) {
+					item = fixture('basic');
+					afterNextRender(item, done);
+				});
+
+				it('does not have aria-checked set by default', () => {
+					expect(item.getAttribute('aria-checked')).to.be.null;
+				});
+
+				it('changes aria-checked when item selected', (done) => {
+					item.setAttribute('selected', true);
+					setTimeout(() => {
+						expect(item.getAttribute('aria-checked')).to.equal('true');
+						done();
+					}, 0);
+				});
+
+			});
+		</script>
+	</body>
+</html>

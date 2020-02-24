@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>MenuItemBehavior tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script type="module" src="../d2l-menu.js"></script>
+		<script type="module" src="./test-menu-item.js"></script>
+	</head>
+	<body>
+		<test-fixture id="menu">
+			<template>
+				<d2l-test-menu-item id="a1">hello</d2l-test-menu-item>
+			</template>
+		</test-fixture>
+
+		<test-fixture id="disabled">
+			<template>
+				<d2l-test-menu-item id="c1" disabled></d2l-test-menu-item>
+			</template>
+		</test-fixture>
+
+		<test-fixture id="nested">
+			<template>
+				<d2l-test-menu-item id="b1">
+					<d2l-menu id="nestedMenu">
+						<d2l-test-menu-item id="a2"></d2l-test-menu-item>
+						<d2l-test-menu-item id="b2"></d2l-test-menu-item>
+					</d2l-menu>
+				</d2l-test-menu-item>
+			</template>
+		</test-fixture>
+		<script type="module">
+			import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+			describe('MenuItemBehavior', () => {
+
+				let menuItem;
+
+				beforeEach((done) => {
+					menuItem = fixture('menu');
+					afterNextRender(menuItem, done);
+				});
+
+				it('has role="menuitem"', () => {
+					expect(menuItem.getAttribute('role')).to.equal('menuitem');
+				});
+
+				it('fires select event when item is clicked', (done) => {
+					menuItem.addEventListener('d2l-menu-item-select', (e) => {
+						expect(e.target.id).to.equal('a1');
+						done();
+					});
+					menuItem.click();
+				});
+
+				it('fires select event when enter key pressed on item', (done) => {
+					menuItem.addEventListener('d2l-menu-item-select', (e) => {
+						expect(e.target.id).to.equal('a1');
+						done();
+					});
+					dispatchKeyEvent(menuItem, 13);
+				});
+
+				it('fires select event when space key pressed on item', (done) => {
+					menuItem.addEventListener('d2l-menu-item-select', (e) => {
+						expect(e.target.id).to.equal('a1');
+						done();
+					});
+					dispatchKeyEvent(menuItem, 32);
+				});
+
+				describe('nested', () => {
+
+					let nestedMenuItem;
+
+					beforeEach((done) => {
+						nestedMenuItem = fixture('nested');
+						afterNextRender(nestedMenuItem, done);
+					});
+
+					it('has aria-haspopup="true" when item contains nested menu', () => {
+						expect(nestedMenuItem.getAttribute('aria-haspopup')).to.equal('true');
+					});
+				});
+
+				describe('disabled', () => {
+					let disabledMenuItem;
+
+					beforeEach((done) => {
+						disabledMenuItem = fixture('disabled');
+						afterNextRender(disabledMenuItem, done);
+					});
+
+					it('does not fire select event for disabled item', (done) => {
+						let fired = false;
+						disabledMenuItem.addEventListener('d2l-menu-item-select', () => {
+							fired = true;
+						});
+						setTimeout(() => {
+							expect(fired).to.be.false;
+							done();
+						}, 0);
+						dispatchKeyEvent(disabledMenuItem, 13);
+					});
+				});
+
+				function dispatchKeyEvent(el, key) {
+					const eventObj = document.createEvent('Events');
+					eventObj.initEvent('keydown', true, true);
+					eventObj.which = key;
+					eventObj.keyCode = key;
+					el.dispatchEvent(eventObj);
+				}
+
+			});
+		</script>
+	</body>
+</html>

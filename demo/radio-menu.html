@@ -3,82 +3,33 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-		<title>d2l-menu-item-radio demo</title>
-		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
-		<script type="module" src="../d2l-menu.js"></script>
-		<script type="module" src="../d2l-menu-item-radio.js"></script>
-		<!-- FIXME(polymer-modulizer):
-		These imperative modules that innerHTML your HTML are
-		a hacky way to be sure that any mixins in included style
-		modules are ready before any elements that reference them are
-		instantiated, otherwise the CSS @apply mixin polyfill won't be
-		able to expand the underlying CSS custom properties.
-		See: https://github.com/Polymer/polymer-modulizer/issues/154
-		-->
-	<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style>
-			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
+		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
-			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<style>
-			html {
-				font-size: 20px;
-			}
-			</style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+			import '../d2l-menu.js';
+			import '../d2l-menu-item-radio.js';
+		</script>
 	</head>
-	<body unresolved class="d2l-typography">
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
-
-			<h3>Radio Menu</h3>
-			<demo-snippet>
+	<body unresolved>
+		<d2l-demo-page page-title="d2l-menu-item-radio (imported from core)">
+			<h2>Radio Menu</h2>
+			<d2l-demo-snippet>
 				<template>
 					<d2l-menu id="menu" label="Radio Menu" style="max-width:400px;">
 						<d2l-menu-item-radio text="Radio Option 1 with a very long title that will be cut off" value="1"></d2l-menu-item-radio>
 						<d2l-menu-item-radio text="Radio Option 2" value="2"></d2l-menu-item-radio>
 						<d2l-menu-item-radio text="Radio Option 3" value="3"></d2l-menu-item-radio>
 					</d2l-menu>
+
+					<script>
+						document.body.addEventListener('d2l-menu-item-change', function(e) {
+							// eslint-disable-next-line no-console
+							console.log('item selection changed:', e.target);
+						});
+					</script>
 				</template>
-			</demo-snippet>
-
-		</div>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
-import 'd2l-typography/d2l-typography.js';
-import '../d2l-menu.js';
-import '../d2l-menu-item-radio.js';
-document.body.addEventListener('d2l-menu-item-change', function(e) {
-	// eslint-disable-next-line no-console
-	console.log('item selection changed:', e.target);
-});
-</script>
+			</d2l-demo-snippet>
+		</d2l-demo-page>
 	</body>
 </html>
